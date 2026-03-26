@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wakana Kuwayama — Designer & Developer</title>
+  <title>Wakana Kuwayama | Designer & Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -89,14 +89,10 @@
     .project-visual > img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.4s ease; }
     .project-card:hover .project-visual > img { transform: scale(1.03); }
 
-    /* Phone frame for mobile screenshots */
-    .phone-frame { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 0.9rem; gap: 0.6rem; }
-    .phone-frame img { height: 100%; width: auto; object-fit: contain; object-position: top; border-radius: 10px; box-shadow: 0 6px 25px rgba(0,0,0,0.15); }
-
-    /* Auto-cycling image slideshow for project cards */
-    .img-cycle { position: relative; width: 100%; height: 100%; overflow: hidden; }
-    .img-cycle img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; transition: opacity 0.8s ease; }
-    .img-cycle img.active { opacity: 1; }
+    /* Phone frame - all images side by side filling the rectangle */
+    .phone-frame { width: 100%; height: 100%; display: flex; align-items: stretch; gap: 0; overflow: hidden; }
+    .phone-frame img { flex: 1; width: 0; height: 100%; object-fit: cover; object-position: top; border-right: 1px solid rgba(255,255,255,0.15); }
+    .phone-frame img:last-child { border-right: none; }
 
     .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .project-award { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-dark); background: var(--mint-light); padding: 0.2rem 0.65rem; border-radius: 100px; margin-bottom: 0.75rem; width: fit-content; }
@@ -181,7 +177,7 @@
       <span class="word word-3">Wakana.</span>
     </h1>
     <p class="hero-sub">I build things that feel human.</p>
-    <p class="hero-bio">From privacy-first mobile apps to accessible web platforms — I design and develop experiences where technology meets empathy. Passionate about HCI, full-stack development, and the tiny details that make people feel seen.</p>
+    <p class="hero-bio">From privacy-first mobile apps to accessible web platforms, I design and develop experiences where technology meets empathy. Passionate about HCI, full-stack development, and the tiny details that make people feel seen.</p>
     <div class="hero-links">
       <a href="#projects" class="btn btn-primary">See my work ↓</a>
       <a href="https://github.com/wakana-k98" target="_blank" class="btn btn-outline">GitHub</a>
@@ -200,8 +196,8 @@
     </div>
     <div class="about-text reveal reveal-delay-1">
       <h2 class="section-title" style="color:var(--bg);">Building at the edge of<br><em style="font-style:italic;">design & code.</em></h2>
-      <p>I'm a <strong>second-year Cognitive Systems student at UBC</strong> (Class of 2028), studying the intersection of neuroscience, computer science, and human-centred design. That background shapes everything I build — I'm always thinking about the person on the other side of the screen.</p>
-      <p>My goal is to create digital products that are not just functional, but genuinely <strong>intuitive, inclusive, and meaningful</strong>. Whether that's an app tackling student loneliness, an accessibility-first dining platform, or a voice-first tool for seniors with memory loss — I bring the same care to all of it.</p>
+      <p>I'm a <strong>Cognitive Systems student at UBC</strong>, studying the intersection of neuroscience, computer science, and human-centred design. That background shapes everything I build. I'm always thinking about the person on the other side of the screen.</p>
+      <p>My goal is to create digital products that are not just functional, but genuinely <strong>intuitive, inclusive, and meaningful</strong>. Whether that's an app tackling student loneliness, an accessibility-first dining platform, or a voice-first tool for seniors with memory loss, I bring the same care to all of it.</p>
       <p>Currently exploring roles in <strong>full-stack development, UX/product design, and HCI research</strong>. I love working at the intersection of all three.</p>
     </div>
     <div class="about-details reveal reveal-delay-2">
@@ -209,8 +205,7 @@
         <h4>🎓 Education</h4>
         <div style="color:#b8c4b8;font-size:0.88rem;line-height:1.85;">
           <strong style="color:var(--bg);">University of British Columbia</strong><br>
-          BSc Cognitive Systems — Cognition & Brain<br>
-          <span style="color:#6a7a6a;font-size:0.8rem;">Year 2 · Expected May 2028</span><br><br>
+          BSc Cognitive Systems, Cognition & Brain<br><br>
           <strong style="color:var(--bg);">Relevant Coursework</strong><br>
           <span style="color:#8a9a8a;font-size:0.8rem;">Software Construction · Data Structures & Algorithms · Machine Learning · HCI Design · Models of Computation</span>
         </div>
@@ -218,9 +213,9 @@
       <div class="detail-card">
         <h4>⚡ Currently</h4>
         <div style="color:#b8c4b8;font-size:0.88rem;line-height:1.9;">
-          👩‍🏫 TA — UBC Systematic Program Design<br>
-          💻 IT Staff — UBC Sauder<br>
-          🔬 VP Internal — UBC Women in Science<br>
+          👩‍🏫 TA at UBC Systematic Program Design<br>
+          💻 IT Staff at UBC Sauder<br>
+          🔬 VP Internal at UBC Women in Science<br>
           🏃 Training for my next marathon
         </div>
       </div>
@@ -228,8 +223,8 @@
         <h4>🌱 Interests & Hobbies</h4>
         <div style="color:#b8c4b8;font-size:0.88rem;line-height:1.9;">
           🎨 Digital design, travel editing, visual storytelling<br>
-          🎹 Piano — Royal Conservatory Level 8<br>
-          🌸 Long walks, music, transit daydreaming
+          🌸 Long walks, music, transit daydreaming<br>
+          🏃 Marathon running & distance training
         </div>
       </div>
     </div>
@@ -415,7 +410,7 @@
   <h2 class="section-title" style="color:var(--bg);">Let's build something<br><em style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;">together.</em></h2>
   <p class="contact-sub">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
   <div class="contact-links">
-    <a href="mailto:wkuwayama@gmail.com" class="contact-link">✉ wkuwayama@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#74031f0103150d151915341319151d185a171b19" class="contact-link">✉ <span class="__cf_email__" data-cfemail="4334283634223a222e2203242e222a2f6d202c2e">[email&#160;protected]</span></a>
     <a href="https://linkedin.com/in/wakana-k" target="_blank" class="contact-link">in LinkedIn</a>
     <a href="https://github.com/wakana-k98" target="_blank" class="contact-link">⌥ GitHub</a>
   </div>
@@ -426,7 +421,7 @@
   <span>Designed & built with care ✿</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Bubbles
   const canvas = document.getElementById('bubbleCanvas');
   const ctx = canvas.getContext('2d');
@@ -448,27 +443,6 @@
   function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); t+=.008; bubbles.forEach((b,i) => { b.y-=b.vy; b.x+=b.vx+Math.sin(b.phase+t)*b.wobble; drawBubble(b); if(b.y<-b.r*2) bubbles[i]=makeBubble(); }); requestAnimationFrame(animate); }
   animate();
 
-  // Auto-cycle phone frame images
-  document.querySelectorAll('.phone-frame').forEach(frame => {
-    const imgs = frame.querySelectorAll('img');
-    if (imgs.length < 2) return;
-    let current = 0;
-    imgs[0].style.opacity = '1';
-    imgs.forEach((img, i) => {
-      img.style.position = i === 0 ? 'relative' : 'absolute';
-      img.style.top = '0'; img.style.left = '0';
-      img.style.height = '100%'; img.style.width = 'auto';
-      img.style.transition = 'opacity 0.7s ease';
-      img.style.opacity = i === 0 ? '1' : '0';
-    });
-    frame.style.position = 'relative';
-    setInterval(() => {
-      imgs[current].style.opacity = '0';
-      current = (current + 1) % imgs.length;
-      imgs[current].style.opacity = '1';
-    }, 2800);
-  });
-
   // Cursor
   const cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
   document.addEventListener('mousemove', e => { cursor.style.left=e.clientX+'px'; cursor.style.top=e.clientY+'px'; setTimeout(()=>{ ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px'; },60); });
@@ -478,8 +452,4 @@
   window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50); });
 
   // Reveal
-  const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+  const o
