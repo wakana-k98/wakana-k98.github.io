@@ -435,6 +435,144 @@
     }
 
     .about-wombat img { width: 100%; animation: float 5s ease-in-out infinite 1s; }
+
+    /* ── Projects ────────────────────────────────────────────── */
+    .projects { background: var(--sage-pale); padding: 6rem 4rem; }
+
+    .projects-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+
+    /* Corgi */
+    .projects-corgi {
+      width: 220px;
+      margin: 0 auto 2rem;
+    }
+    .projects-corgi img { width: 100%; animation: float 4.5s ease-in-out infinite 0.5s; }
+
+    /* Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+
+    /* Cards */
+    .project-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: visible;
+      position: relative;
+      padding-top: 14px;
+      box-shadow: 0 4px 20px var(--shadow-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:nth-child(odd)  { transform: rotate(-1.2deg); }
+    .project-card:nth-child(even) { transform: rotate(0.8deg); }
+    .project-card:hover { transform: rotate(0deg) translateY(-6px); box-shadow: 0 12px 36px var(--shadow-medium); }
+
+    /* Washi tape strips */
+    .washi-tape {
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 56px;
+      height: 20px;
+      border-radius: 3px;
+      opacity: 0.85;
+      background: var(--sage-light);
+      transform: rotate(-2deg);
+    }
+
+    .washi-tape::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 200px;
+      width: 48px;
+      height: 20px;
+      border-radius: 3px;
+      background: var(--pink-pale);
+      border: 1px solid var(--pink);
+      transform: rotate(2deg);
+      opacity: 0.9;
+    }
+
+    .project-body { padding: 1.2rem 1.4rem 1.4rem; }
+
+    /* Award stamps */
+    .award-stamp {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--sage-light);
+      border: 1px solid var(--sage);
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 0.65rem;
+    }
+
+    .award-pink {
+      color: var(--sage-darkest);
+      background: var(--pink-pale);
+      border-color: var(--pink);
+    }
+
+    .project-card h3 {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .project-date {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.65rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      background: var(--sage-pale);
+      color: var(--sage-dark);
+      border: 1px solid var(--sage-light);
+    }
+
+    .project-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--sage);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .project-link:hover { color: var(--sage-dark); }
+
+    .project-links { display: flex; gap: 0.6rem; }
   </style>
 </head>
 <body>
@@ -536,6 +674,131 @@
         <img src="assets/animals/wombat.png" alt="Kawaii wombat saying hi" class="animal-float"/>
       </div>
 
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="projects-inner">
+      <p class="section-label">Featured Projects</p>
+      <h2 class="section-title">Things I've<br>built.</h2>
+
+      <!-- Corgi -->
+      <div class="projects-corgi">
+        <img src="assets/animals/corgi.png" alt="Kawaii corgi illustration" class="animal-float"/>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- MemoryLane -->
+        <article class="project-card">
+          <div class="washi-tape"></div>
+          <div class="project-body">
+            <span class="award-stamp">✦ Hack the Coast 2026</span>
+            <h3>MemoryLane</h3>
+            <p class="project-date">In development</p>
+            <p class="project-desc">A voice-first mobile app designed for seniors experiencing cognitive decline, helping them record and revisit personal memories through guided prompts and calm, accessible design. Built with minimal navigation and ElevenLabs voice integration to reduce cognitive load.</p>
+            <div class="project-footer">
+              <div class="tech-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Expo</span>
+                <span class="tag">ElevenLabs API</span>
+                <span class="tag">Figma</span>
+              </div>
+              <a href="https://devpost.com" target="_blank" class="project-link">Devpost ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ripple -->
+        <article class="project-card">
+          <div class="washi-tape"></div>
+          <div class="project-body">
+            <span class="award-stamp award-pink">✦ nwHacks 2026 Best Wellness Runner-up</span>
+            <h3>Ripple</h3>
+            <p class="project-date">January 2026</p>
+            <p class="project-desc">A privacy-first mobile app to reduce student loneliness through anonymous, event-based connections. Led end-to-end UX from problem framing to high-fidelity prototypes, integrating audio-based interactions that prioritize emotional safety over social metrics.</p>
+            <div class="project-footer">
+              <div class="tech-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Expo</span>
+                <span class="tag">Figma</span>
+                <span class="tag">REST APIs</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
+                <a href="https://devpost.com" target="_blank" class="project-link">Devpost ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- BentoBuddies -->
+        <article class="project-card">
+          <div class="washi-tape"></div>
+          <div class="project-body">
+            <span class="award-stamp">✦ HackCamp 2025 Finalist · Best Accessible Design</span>
+            <h3>BentoBuddies</h3>
+            <p class="project-date">November 2025</p>
+            <p class="project-desc">A responsive web app connecting UBC students to find dining partners. Designed WCAG-compliant accessible interfaces and integrated Google Maps API for campus-wide discovery. Built with a team of 4 out of 300 participants, 64 teams.</p>
+            <div class="project-footer">
+              <div class="tech-tags">
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Google Maps API</span>
+                <span class="tag">Figma</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
+                <a href="https://devpost.com" target="_blank" class="project-link">Devpost ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Downtime -->
+        <article class="project-card">
+          <div class="washi-tape"></div>
+          <div class="project-body">
+            <span class="award-stamp award-pink">✦ UXathon 2026</span>
+            <h3>Downtime</h3>
+            <p class="project-date">January 2026</p>
+            <p class="project-desc">A UX concept empowering teenagers to disconnect without social anxiety. Conducted user research with teens (16–18), synthesizing insights into personas, user journeys, and a high-fidelity Figma prototype with automated status messaging and affirming microcopy.</p>
+            <div class="project-footer">
+              <div class="tech-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">Prototyping</span>
+              </div>
+              <div class="project-links">
+                <a href="https://devpost.com" target="_blank" class="project-link">Figma ↗</a>
+                <a href="https://devpost.com" target="_blank" class="project-link">Devpost ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Digital Wardrobe Manager -->
+        <article class="project-card">
+          <div class="washi-tape"></div>
+          <div class="project-body">
+            <span class="award-stamp">✦ 100% project grade</span>
+            <h3>Digital Wardrobe Manager</h3>
+            <p class="project-date">Sep – Dec 2025</p>
+            <p class="project-desc">A Java-based wardrobe system with GUI, weather-based outfit suggestions, and JSON data persistence. Built with MVC architecture across 6 classes following SOLID principles, with a JUnit test suite achieving 100% code coverage.</p>
+            <div class="project-footer">
+              <div class="tech-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Java Swing</span>
+                <span class="tag">JSON</span>
+                <span class="tag">JUnit</span>
+              </div>
+              <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
