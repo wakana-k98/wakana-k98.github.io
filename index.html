@@ -27,6 +27,13 @@
       --shadow-medium: rgba(45, 42, 38, 0.12);
       --shadow-sage:  rgba(143, 173, 136, 0.25);
       --sage-darkest: #1e2418;
+      --text-sage-muted:   #b8c4b0;
+      --text-pink-muted:   #c4b0b8;
+      --sage-glass-bg:     rgba(200, 221, 181, 0.12);
+      --sage-glass-border: rgba(200, 221, 181, 0.2);
+      --pink-glass-bg:     rgba(244, 167, 185, 0.1);
+      --pink-glass-border: rgba(244, 167, 185, 0.18);
+      --shadow-black:      rgba(0, 0, 0, 0.35);
     }
 
     /* ── Reset ───────────────────────────────────────────────── */
@@ -357,7 +364,7 @@
     .polaroid {
       background: var(--cream);
       padding: 0.75rem 0.75rem 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 24px var(--shadow-black);
       transform: rotate(-2deg);
     }
 
@@ -380,7 +387,7 @@
     .about-text p {
       font-size: 0.93rem;
       line-height: 1.85;
-      color: #b8c4b0;
+      color: var(--text-sage-muted);
       margin-bottom: 1rem;
     }
 
@@ -405,16 +412,16 @@
     }
 
     .sticky-sage {
-      background: rgba(200, 221, 181, 0.12);
-      border: 1px solid rgba(200, 221, 181, 0.2);
-      color: #b8c4b0;
+      background: var(--sage-glass-bg);
+      border: 1px solid var(--sage-glass-border);
+      color: var(--text-sage-muted);
     }
     .sticky-sage h4 { color: var(--sage-light); }
 
     .sticky-pink {
-      background: rgba(244, 167, 185, 0.1);
-      border: 1px solid rgba(244, 167, 185, 0.18);
-      color: #c4b0b8;
+      background: var(--pink-glass-bg);
+      border: 1px solid var(--pink-glass-border);
+      color: var(--text-pink-muted);
     }
     .sticky-pink h4 { color: var(--pink); }
 
