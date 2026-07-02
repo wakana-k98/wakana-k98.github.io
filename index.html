@@ -81,15 +81,95 @@
 
     /* Sections sit above texture */
     section, nav, header { position: relative; z-index: 1; }
+
+    /* ── Logo Badge ──────────────────────────────────────────── */
+    .logo-badge {
+      position: fixed;
+      top: 1.25rem;
+      left: 1.5rem;
+      z-index: 200;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      box-shadow: 0 2px 8px rgba(45,42,38,0.08);
+      transition: background 0.2s;
+    }
+    .logo-badge:hover { background: var(--sage-light); }
+
+    /* ── Pill Nav ────────────────────────────────────────────── */
+    .pill-nav {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(255,253,248,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 0.55rem 0.75rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 8px 32px rgba(45,42,38,0.12);
+      z-index: 200;
+    }
+
+    .pill {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .pill:hover { color: var(--ink); background: var(--sage-pale); }
+
+    .pill.active {
+      background: var(--sage);
+      color: var(--white);
+    }
   </style>
 </head>
 <body>
+
+  <!-- Logo badge -->
+  <a class="logo-badge" href="#home">わかな</a>
+
+  <!-- Bottom pill nav -->
+  <nav class="pill-nav" id="pill-nav">
+    <a class="pill" href="#about" data-section="about">🐾 about</a>
+    <a class="pill" href="#projects" data-section="projects">🌿 projects</a>
+    <a class="pill" href="#skills" data-section="skills">✨ skills</a>
+    <a class="pill" href="#contact" data-section="contact">✉️ contact</a>
+  </nav>
 
   <!-- Sections will be added in subsequent tasks -->
   <p style="padding:4rem;font-family:'Zen Maru Gothic',sans-serif;color:var(--sage);">Foundation ready ✿</p>
 
   <script>
-    // JS will be added in subsequent tasks
+    // Active pill detection via IntersectionObserver
+    const sections = document.querySelectorAll('section[id]');
+    const pills = document.querySelectorAll('.pill[data-section]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const active = document.querySelector(`.pill[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
   </script>
 </body>
 </html>
