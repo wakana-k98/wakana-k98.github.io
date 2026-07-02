@@ -26,6 +26,7 @@
       --shadow-soft: rgba(45, 42, 38, 0.08);
       --shadow-medium: rgba(45, 42, 38, 0.12);
       --shadow-sage:  rgba(143, 173, 136, 0.25);
+      --sage-darkest: #1e2418;
     }
 
     /* ── Reset ───────────────────────────────────────────────── */
@@ -306,6 +307,127 @@
       0%   { transform: translateY(0) rotate(0deg); opacity: 0.6; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
+
+    /* ── About ───────────────────────────────────────────────── */
+    .about {
+      background: var(--sage-darkest);
+      color: var(--cream);
+      padding: 6rem 4rem 8rem;
+      overflow: visible;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Hanko stamp */
+    .hanko {
+      position: absolute;
+      top: -1rem;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2.5px solid var(--red-stamp);
+      color: var(--red-stamp);
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.05em;
+      transform: rotate(-18deg);
+      opacity: 0.85;
+    }
+
+    /* Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr 280px;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 1.5rem;
+    }
+
+    /* Polaroid */
+    .polaroid {
+      background: var(--cream);
+      padding: 0.75rem 0.75rem 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      transform: rotate(-2deg);
+    }
+
+    .polaroid-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--sage-light), var(--pink-pale));
+      border-radius: 2px;
+    }
+
+    .polaroid-caption {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
+    /* Bio text */
+    .about-text p {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: #b8c4b0;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p strong { color: var(--cream); font-weight: 500; }
+
+    /* Sticky notes */
+    .sticky-note {
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    .sticky-note h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
+    .sticky-sage {
+      background: rgba(200, 221, 181, 0.12);
+      border: 1px solid rgba(200, 221, 181, 0.2);
+      color: #b8c4b0;
+    }
+    .sticky-sage h4 { color: var(--sage-light); }
+
+    .sticky-pink {
+      background: rgba(244, 167, 185, 0.1);
+      border: 1px solid rgba(244, 167, 185, 0.18);
+      color: #c4b0b8;
+    }
+    .sticky-pink h4 { color: var(--pink); }
+
+    /* Wombat */
+    .about-wombat {
+      position: absolute;
+      bottom: -100px;
+      right: -40px;
+      width: 200px;
+      pointer-events: none;
+    }
+
+    .about-wombat img { width: 100%; animation: float 5s ease-in-out infinite 1s; }
   </style>
 </head>
 <body>
@@ -351,6 +473,62 @@
       <div class="hero-animal">
         <img src="assets/animals/capybara.png" alt="Kawaii capybara illustration" class="animal-float"/>
       </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+
+      <!-- Hanko stamp -->
+      <div class="hanko" aria-hidden="true">について</div>
+
+      <p class="section-label" style="color:var(--sage-light)">About me</p>
+      <h2 class="section-title" style="color:var(--cream)">Building at the edge of<br>design &amp; code.</h2>
+
+      <div class="about-grid">
+        <!-- Photo -->
+        <div class="about-photo-wrap">
+          <div class="polaroid">
+            <div class="polaroid-img-placeholder" aria-label="Photo of Wakana"></div>
+            <p class="polaroid-caption">wakana ✿</p>
+          </div>
+        </div>
+
+        <!-- Bio text -->
+        <div class="about-text">
+          <p>I'm a <strong>third-year Cognitive Systems student at UBC</strong>, studying the intersection of neuroscience, computer science, and human-centred design. That background shapes everything I build — I'm always thinking about the person on the other side of the screen.</p>
+          <p>My goal is to create things that are not just functional, but genuinely <strong>intuitive, inclusive, and meaningful</strong>. I care deeply about the details that make a product feel thoughtful rather than just built.</p>
+          <p>Currently exploring roles in <strong>full-stack development, UX/product design, and HCI research</strong>. I love working at the intersection of all three.</p>
+        </div>
+
+        <!-- Detail sticky notes -->
+        <div class="about-details">
+          <div class="sticky-note sticky-sage">
+            <h4>🎓 Education</h4>
+            <p><strong>University of British Columbia</strong><br>BSc Cognitive Systems, Cognition &amp; Brain</p>
+            <p style="margin-top:0.5rem;font-size:0.78rem;opacity:0.8">Software Construction · Data Structures &amp; Algorithms · Machine Learning · HCI Design · Models of Computation</p>
+          </div>
+          <div class="sticky-note sticky-pink">
+            <h4>⚡ Currently</h4>
+            <p>👩‍🏫 TA at UBC Computer Science</p>
+            <p>💻 IT Staff at UBC Sauder</p>
+            <p>🔬 VP Internal at UBC Women in Science</p>
+          </div>
+          <div class="sticky-note sticky-sage">
+            <h4>🌱 Outside of work</h4>
+            <p>🎨 Digital design &amp; visual storytelling</p>
+            <p>🎵 Going to concerts &amp; making music</p>
+            <p>🍜 Trying new restaurants &amp; cuisines</p>
+            <p>✂️ Crafts, creative projects &amp; DIY</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wombat peeking -->
+      <div class="about-wombat">
+        <img src="assets/animals/wombat.png" alt="Kawaii wombat saying hi" class="animal-float"/>
+      </div>
+
     </div>
   </section>
 
