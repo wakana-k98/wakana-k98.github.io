@@ -695,6 +695,48 @@
       letter-spacing: 0.04em;
       color: var(--cream-dim);
     }
+
+    /* ── Scroll Reveal ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      section { padding: 5rem 2rem; }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-animal { order: -1; }
+      .animal-float { max-width: 240px; margin: 0 auto; }
+      .hero-links { justify-content: center; }
+      .hero-bio { margin: 0 auto 2rem; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .about-wombat { display: none; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .pill-nav { bottom: 1rem; padding: 0.45rem 0.6rem; }
+      .pill { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-name { font-size: 2.4rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .pill { font-size: 0.68rem; padding: 0.28rem 0.55rem; }
+      .contact-pills { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
 <body>
@@ -752,7 +794,7 @@
       <p class="section-label" style="color:var(--sage-light)">About me</p>
       <h2 class="section-title" style="color:var(--cream)">Building at the edge of<br>design &amp; code.</h2>
 
-      <div class="about-grid">
+      <div class="about-grid reveal">
         <!-- Photo -->
         <div class="about-photo-wrap">
           <div class="polaroid">
@@ -805,11 +847,11 @@
       <h2 class="section-title">Things I've<br>built.</h2>
 
       <!-- Corgi -->
-      <div class="projects-corgi">
+      <div class="projects-corgi reveal">
         <img src="assets/animals/corgi.png" alt="Kawaii corgi illustration" class="animal-float"/>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid reveal">
 
         <!-- MemoryLane -->
         <article class="project-card">
@@ -929,7 +971,7 @@
       <p class="section-label">Technical Skills</p>
       <h2 class="section-title">What I<br>work with.</h2>
 
-      <div class="skills-grid">
+      <div class="skills-grid reveal">
         <div class="skill-envelope">
           <h4>Languages</h4>
           <div class="skill-tags">
@@ -999,10 +1041,10 @@
   <section class="contact" id="contact">
     <div class="contact-inner">
       <p class="section-label" style="color:var(--sage-light);justify-content:center">Get in touch</p>
-      <h2 class="contact-heading">Let's build something<br>together ✿</h2>
-      <p class="contact-sub">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
+      <h2 class="contact-heading reveal">Let's build something<br>together ✿</h2>
+      <p class="contact-sub reveal">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
 
-      <div class="contact-links">
+      <div class="contact-links reveal">
         <a href="mailto:wkuwayama@gmail.com" class="stamp-btn">✉ wkuwayama@gmail.com</a>
         <div class="contact-pills">
           <a href="https://www.linkedin.com/in/wakana-k/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
@@ -1032,6 +1074,19 @@
     }, { threshold: 0.4 });
 
     sections.forEach(s => observer.observe(s));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
