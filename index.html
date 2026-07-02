@@ -23,6 +23,9 @@
       --border:      #d8e8d0;
       --white:       #ffffff;
       --cream-alpha: rgba(255, 253, 248, 0.92);
+      --cream-faded: rgba(255, 253, 248, 0.65);
+      --cream-mid:   rgba(255, 253, 248, 0.75);
+      --cream-dim:   rgba(255, 253, 248, 0.35);
       --shadow-soft: rgba(45, 42, 38, 0.08);
       --shadow-medium: rgba(45, 42, 38, 0.12);
       --shadow-sage:  rgba(143, 173, 136, 0.25);
@@ -633,7 +636,7 @@
 
     .contact-sub {
       font-size: 0.92rem;
-      opacity: 0.65;
+      color: var(--cream-faded);
       margin-bottom: 2.5rem;
       line-height: 1.7;
     }
@@ -667,7 +670,7 @@
 
     .btn-outline-light {
       border: 1.5px solid var(--sage-glass-border);
-      color: var(--cream-alpha);
+      color: var(--cream-mid);
       background: transparent;
       font-family: 'M PLUS Rounded 1c', sans-serif;
       font-size: 0.82rem;
@@ -690,6 +693,7 @@
       border-top: 1px solid var(--sage-glass-border);
       font-size: 0.78rem;
       letter-spacing: 0.04em;
+      color: var(--cream-dim);
     }
   </style>
 </head>
