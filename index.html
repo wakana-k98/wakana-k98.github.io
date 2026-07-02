@@ -611,6 +611,86 @@
       border-color: var(--sage-light);
       color: var(--ink);
     }
+
+    /* ── Contact ─────────────────────────────────────────────── */
+    .contact {
+      background: var(--sage-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 6rem 4rem 3rem;
+    }
+
+    .contact-inner { max-width: 640px; margin: 0 auto; }
+
+    .contact-heading {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      font-size: 0.92rem;
+      opacity: 0.65;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stamp-btn {
+      display: inline-block;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--red-stamp);
+      border: 2px solid var(--red-stamp);
+      border-radius: 100px;
+      padding: 0.65rem 1.8rem;
+      transition: all 0.22s ease;
+      letter-spacing: 0.02em;
+    }
+    .stamp-btn:hover {
+      background: var(--red-stamp);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .contact-pills { display: flex; gap: 0.75rem; }
+
+    .btn-outline-light {
+      border: 1.5px solid var(--sage-glass-border);
+      color: var(--cream-alpha);
+      background: transparent;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.5rem 1.3rem;
+      border-radius: 100px;
+      transition: all 0.22s ease;
+    }
+    .btn-outline-light:hover {
+      border-color: var(--sage-light);
+      color: var(--cream);
+      background: var(--sage-glass-bg);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sage-glass-border);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 <body>
@@ -910,6 +990,26 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <p class="section-label" style="color:var(--sage-light);justify-content:center">Get in touch</p>
+      <h2 class="contact-heading">Let's build something<br>together ✿</h2>
+      <p class="contact-sub">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
+
+      <div class="contact-links">
+        <a href="mailto:wkuwayama@gmail.com" class="stamp-btn">✉ wkuwayama@gmail.com</a>
+        <div class="contact-pills">
+          <a href="https://www.linkedin.com/in/wakana-k/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
+          <a href="https://github.com/wakana-k98" target="_blank" class="btn btn-outline-light">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 Wakana Kuwayama · <span style="font-family:'Zen Maru Gothic',sans-serif">届く</span> ✿</p>
+    </footer>
   </section>
 
   <script>
