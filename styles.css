@@ -197,9 +197,9 @@ img { display: block; max-width: 100%; }
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
     sway-1           4.2s ease-in-out                        2.6s  infinite;
 }
-/* t2: Earbuds — left gap between fan and bow */
+/* t2: Earbuds — open space between fan and bow, above bow */
 .t2 {
-  width: 220px; top: 370px; left: 120px;
+  width: 220px; top: 280px; left: 155px;
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
@@ -221,9 +221,9 @@ img { display: block; max-width: 100%; }
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.25s forwards,
     sway-4           3.5s ease-in-out                        2.85s infinite;
 }
-/* t5: Fish/taiyaki — bigger, closer to center */
+/* t5: Fish/taiyaki — slightly higher and left */
 .t5 {
-  width: 140px; top: 620px; left: calc(50% - 300px);
+  width: 140px; top: 570px; left: calc(50% - 320px);
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s forwards,
