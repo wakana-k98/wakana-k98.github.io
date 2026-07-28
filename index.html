@@ -165,123 +165,89 @@
       100% { opacity: 1; transform: translate(0, 0) scale(1); }
     }
 
-    /* ── Sway keyframes (desktop: 20–28px) ─────────────── */
-    @keyframes sway-1 {
-      0%, 100% { transform: translateX(0)      rotate(-1deg);   }
-      50%       { transform: translateX(24px)   rotate(1.2deg);  }
-    }
-    @keyframes sway-2 {
-      0%, 100% { transform: translateX(0)      rotate(1.5deg);  }
-      50%       { transform: translateX(-26px)  rotate(-1deg);   }
-    }
-    @keyframes sway-3 {
-      0%, 100% { transform: translateX(0)      rotate(-2deg);   }
-      50%       { transform: translateX(22px)   rotate(1.8deg);  }
-    }
-    @keyframes sway-4 {
-      0%, 100% { transform: translateX(0)      rotate(0.5deg);  }
-      50%       { transform: translateX(-28px)  rotate(-2deg);   }
-    }
-    @keyframes sway-5 {
-      0%, 100% { transform: translateX(0)      rotate(2deg);    }
-      50%       { transform: translateX(20px)   rotate(-1deg);   }
-    }
-    @keyframes sway-6 {
-      0%, 100% { transform: translateX(0)      rotate(-1.5deg); }
-      50%       { transform: translateX(-24px)  rotate(1deg);    }
-    }
-    @keyframes sway-7 {
-      0%, 100% { transform: translateX(0)      rotate(1deg);    }
-      50%       { transform: translateX(26px)   rotate(-2deg);   }
-    }
-    @keyframes sway-8 {
-      0%, 100% { transform: translateX(0)      rotate(-0.5deg); }
-      50%       { transform: translateX(-22px)  rotate(1.5deg);  }
-    }
-    @keyframes sway-9 {
-      0%, 100% { transform: translateX(0)      rotate(2deg);    }
-      50%       { transform: translateX(28px)   rotate(-1.5deg); }
-    }
+    /* ── Sway keyframes (25–35px amplitude) ───────────── */
+    @keyframes sway-1  { 0%,100%{transform:translateX(0)    rotate(-1deg)  } 50%{transform:translateX(30px)  rotate(1.2deg) } }
+    @keyframes sway-2  { 0%,100%{transform:translateX(0)    rotate(1.5deg) } 50%{transform:translateX(-28px) rotate(-1deg)  } }
+    @keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-2deg)  } 50%{transform:translateX(25px)  rotate(1.8deg) } }
+    @keyframes sway-4  { 0%,100%{transform:translateX(0)    rotate(0.5deg) } 50%{transform:translateX(-32px) rotate(-2deg)  } }
+    @keyframes sway-5  { 0%,100%{transform:translateX(0)    rotate(2deg)   } 50%{transform:translateX(28px)  rotate(-1deg)  } }
+    @keyframes sway-6  { 0%,100%{transform:translateX(0)    rotate(-1.5deg)} 50%{transform:translateX(-26px) rotate(1deg)   } }
+    @keyframes sway-7  { 0%,100%{transform:translateX(0)    rotate(1deg)   } 50%{transform:translateX(35px)  rotate(-2deg)  } }
+    @keyframes sway-8  { 0%,100%{transform:translateX(0)    rotate(-0.5deg)} 50%{transform:translateX(-30px) rotate(1.5deg) } }
+    @keyframes sway-9  { 0%,100%{transform:translateX(0)    rotate(2deg)   } 50%{transform:translateX(28px)  rotate(-1.5deg)} }
+    @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-1.2deg)} 50%{transform:translateX(-25px) rotate(0.8deg) } }
 
-    /* ── Sway keyframes (10 trinkets) ──────────────────── */
-    @keyframes sway-10 {
-      0%, 100% { transform: translateX(0)      rotate(-1.2deg); }
-      50%       { transform: translateX(-26px)  rotate(0.8deg);  }
-    }
+    /* ── Trinket positions — Figma layout (entrance 2.5s) ── */
 
-    /* ── Trinket positions + two-phase animation ────────── */
-    /* Phase 1: entrance (2s, once, forwards fill keeps opacity:1)  */
-    /* Phase 2: sway (starts at entrance_delay + 2.1s, loops forever) */
-
-    /* Vintage fan — top-left, big bleed */
+    /* Fan: 240px, 80px from top, 40px from left */
     .t1 {
-      width: 370px; top: -1%;   left: -6%;
+      width: 240px; top: 80px; left: 40px;
       animation:
-        enter-from-topleft     2s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
-        sway-1                 4.2s ease-in-out                      2.1s  infinite;
+        enter-from-topleft     2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
+        sway-1                 4.2s ease-in-out                        2.6s  infinite;
     }
-    /* Earbuds — mid-left, pushed to edge */
+    /* Earbuds: 120px, 350px from top, left edge */
     .t2 {
-      width: 200px; top: 44%;   left: -2%;
+      width: 120px; top: 350px; left: 15px;
       animation:
-        enter-from-left        2s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
-        sway-2                 3.8s ease-in-out                      2.2s  infinite;
+        enter-from-left        2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
+        sway-2                 3.8s ease-in-out                        2.7s  infinite;
     }
-    /* Lace bow — bottom-left, large */
+    /* Bow: 160px, 500px from top, 30px from left */
     .t3 {
-      width: 270px; bottom: 2%; left: -3%;
+      width: 160px; top: 500px; left: 30px;
       animation:
-        enter-from-bottomleft  2s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
-        sway-3                 4.5s ease-in-out                      2.25s infinite;
+        enter-from-bottomleft  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
+        sway-3                 4.5s ease-in-out                        2.75s infinite;
     }
-    /* Taiyaki fish — bottom-center */
+    /* Fish: 90px, bottom-center-left */
     .t4 {
-      width: 140px; bottom: 12%; left: 44%;
+      width: 90px; bottom: 80px; left: calc(50% - 200px);
       animation:
-        enter-from-bottom      2s cubic-bezier(0.25,0.46,0.45,0.94) 0.22s forwards,
-        sway-4                 3.5s ease-in-out                      2.32s infinite;
+        enter-from-bottom      2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.22s forwards,
+        sway-4                 3.5s ease-in-out                        2.82s infinite;
     }
-    /* Origami crane — top-center, larger */
+    /* Crane: 120px, top area right of center */
     .t5 {
-      width: 220px; top: 4%;    left: 40%;
+      width: 120px; top: 80px; left: calc(50% + 60px);
       animation:
-        enter-from-top         2s cubic-bezier(0.25,0.46,0.45,0.94) 0.08s forwards,
-        sway-5                 4.8s ease-in-out                      2.18s infinite;
+        enter-from-top         2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.08s forwards,
+        sway-5                 4.8s ease-in-out                        2.68s infinite;
     }
-    /* Fortune cat — center-left, closer to text */
+    /* Cat: 140px, center-left ~150px left of title */
     .t6 {
-      width: 230px; top: 30%;   left: 20%;
+      width: 140px; top: calc(50% - 80px); left: calc(50% - 280px);
       animation:
-        enter-from-left        2s cubic-bezier(0.25,0.46,0.45,0.94) 0.05s forwards,
-        sway-6                 3.9s ease-in-out                      2.15s infinite;
+        enter-from-left        2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.05s forwards,
+        sway-6                 3.9s ease-in-out                        2.65s infinite;
     }
-    /* Yellow star — center-right, fills gap */
+    /* Star: 90px, center-right ~100px right of title */
     .t7 {
-      width: 140px; top: 52%;   left: 60%;
+      width: 90px; top: calc(50% - 20px); left: calc(50% + 140px);
       animation:
-        enter-from-right       2s cubic-bezier(0.25,0.46,0.45,0.94) 0.12s forwards,
-        sway-7                 3.6s ease-in-out                      2.22s infinite;
+        enter-from-right       2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.12s forwards,
+        sway-7                 3.6s ease-in-out                        2.72s infinite;
     }
-    /* Matcha cup — right-center, pulled up */
+    /* Matcha: 110px, right-center */
     .t8 {
-      width: 195px; top: 36%;   right: 1%;
+      width: 110px; top: calc(50% - 30px); right: 60px;
       animation:
-        enter-from-right       2s cubic-bezier(0.25,0.46,0.45,0.94) 0.18s forwards,
-        sway-8                 4.3s ease-in-out                      2.28s infinite;
+        enter-from-right       2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.18s forwards,
+        sway-8                 4.3s ease-in-out                        2.78s infinite;
     }
-    /* Orchid — DOMINANT, top-right, big bleed */
+    /* Orchid: 320px, top-right — 20px from top, 20px from right */
     .t9 {
-      width: 460px; top: -5%;   right: -6%;
+      width: 320px; top: 20px; right: 20px;
       animation:
-        enter-from-topright    2s cubic-bezier(0.25,0.46,0.45,0.94) 0.06s forwards,
-        sway-9                 3.7s ease-in-out                      2.16s infinite;
+        enter-from-topright    2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.06s forwards,
+        sway-9                 3.7s ease-in-out                        2.66s infinite;
     }
-    /* Miffy bunny — bottom-right, pushed to edge */
+    /* Miffy: 200px, bottom-right — 30px from bottom, 50px from right */
     .t10 {
-      width: 300px; bottom: 0%; right: -1%;
+      width: 200px; bottom: 30px; right: 50px;
       animation:
-        enter-from-bottomright 2s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
-        sway-10                4.6s ease-in-out                      2.3s  infinite;
+        enter-from-bottomright 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
+        sway-10                4.6s ease-in-out                        2.8s  infinite;
     }
 
     /* ── ABOUT ─────────────────────────────────────────── */
@@ -544,50 +510,50 @@
       .pill-nav { bottom: 1rem; padding: 0.4rem 0.55rem; }
       .pill { font-size: 0.68rem; padding: 0.27rem 0.7rem; }
 
-      /* Trinkets — scale ~55% on tablet */
-      .t1  { width: 204px; }
-      .t2  { width: 110px; }
-      .t3  { width: 149px; }
-      .t4  { width: 77px;  }
-      .t5  { width: 121px; }
-      .t6  { width: 127px; }
-      .t7  { width: 77px;  }
-      .t8  { width: 107px; }
-      .t9  { width: 253px; }
-      .t10 { width: 165px; }
+      /* Trinkets — 75% scale on tablet */
+      .t1  { width: 180px; top: 60px;  left: 30px; }
+      .t2  { width: 90px;  top: 263px; left: 11px; }
+      .t3  { width: 120px; top: 375px; left: 22px; }
+      .t4  { width: 68px;  bottom: 60px; }
+      .t5  { width: 90px;  top: 60px; }
+      .t6  { width: 105px; }
+      .t7  { width: 68px;  }
+      .t8  { width: 83px;  right: 45px; }
+      .t9  { width: 240px; top: 15px; right: 15px; }
+      .t10 { width: 150px; bottom: 22px; right: 38px; }
     }
 
-    /* Mobile sway — reduced amplitude (~12px) */
+    /* Mobile sway — reduced to ~14px amplitude */
     @media (max-width: 768px) {
-      @keyframes sway-1  { 0%,100%{transform:translateX(0)    rotate(-0.8deg)} 50%{transform:translateX(12px)  rotate(0.8deg) } }
-      @keyframes sway-2  { 0%,100%{transform:translateX(0)    rotate(0.8deg) } 50%{transform:translateX(-13px) rotate(-0.7deg)} }
-      @keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-1.2deg)} 50%{transform:translateX(11px)  rotate(1.1deg) } }
-      @keyframes sway-4  { 0%,100%{transform:translateX(0)    rotate(0.4deg) } 50%{transform:translateX(-14px) rotate(-1.2deg)} }
-      @keyframes sway-5  { 0%,100%{transform:translateX(0)    rotate(1.2deg) } 50%{transform:translateX(12px)  rotate(-0.7deg)} }
-      @keyframes sway-6  { 0%,100%{transform:translateX(0)    rotate(-1deg)  } 50%{transform:translateX(-11px) rotate(0.7deg) } }
-      @keyframes sway-7  { 0%,100%{transform:translateX(0)    rotate(0.7deg) } 50%{transform:translateX(13px)  rotate(-1.2deg)} }
-      @keyframes sway-8  { 0%,100%{transform:translateX(0)    rotate(-0.4deg)} 50%{transform:translateX(-11px) rotate(0.9deg) } }
+      @keyframes sway-1  { 0%,100%{transform:translateX(0)    rotate(-0.8deg)} 50%{transform:translateX(14px)  rotate(0.9deg) } }
+      @keyframes sway-2  { 0%,100%{transform:translateX(0)    rotate(0.9deg) } 50%{transform:translateX(-14px) rotate(-0.7deg)} }
+      @keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-1.2deg)} 50%{transform:translateX(12px)  rotate(1.1deg) } }
+      @keyframes sway-4  { 0%,100%{transform:translateX(0)    rotate(0.4deg) } 50%{transform:translateX(-15px) rotate(-1.2deg)} }
+      @keyframes sway-5  { 0%,100%{transform:translateX(0)    rotate(1.2deg) } 50%{transform:translateX(13px)  rotate(-0.7deg)} }
+      @keyframes sway-6  { 0%,100%{transform:translateX(0)    rotate(-1deg)  } 50%{transform:translateX(-12px) rotate(0.7deg) } }
+      @keyframes sway-7  { 0%,100%{transform:translateX(0)    rotate(0.7deg) } 50%{transform:translateX(14px)  rotate(-1.2deg)} }
+      @keyframes sway-8  { 0%,100%{transform:translateX(0)    rotate(-0.4deg)} 50%{transform:translateX(-12px) rotate(0.9deg) } }
       @keyframes sway-9  { 0%,100%{transform:translateX(0)    rotate(1.2deg) } 50%{transform:translateX(14px)  rotate(-1deg)  } }
-      @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-0.9deg)} 50%{transform:translateX(-13px) rotate(0.7deg) } }
+      @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-0.9deg)} 50%{transform:translateX(-12px) rotate(0.7deg) } }
     }
 
+    /* Mobile — 60% scale, positions adjusted to maintain Figma composition */
     @media (max-width: 540px) {
       .hero-title    { font-size: 30px; }
       .hero-subtitle { font-size: 13px; }
       .skills-grid   { grid-template-columns: 1fr; }
       .contact-pills { flex-direction: column; align-items: center; }
 
-      /* Mobile: keep big statement pieces, hide detail accents */
-      .t1  { width: 130px; top: 3%;    left: -2%; }
-      .t2  { display: none; }
-      .t3  { width: 120px; bottom: 6%; left: 0%; }
-      .t4  { display: none; }
-      .t5  { width: 90px;  top: 10%;  left: 38%; }
-      .t6  { width: 95px;  top: 38%;  left: 18%; }
-      .t7  { width: 60px;  top: 43%;  left: 60%; }
+      .t1  { width: 144px; top: 48px;  left: 24px; }
+      .t2  { width: 72px;  top: 210px; left: 9px;  }
+      .t3  { width: 96px;  top: 300px; left: 18px; }
+      .t4  { width: 54px;  bottom: 48px; left: calc(50% - 120px); }
+      .t5  { width: 72px;  top: 48px;  left: calc(50% + 36px); }
+      .t6  { width: 84px;  }
+      .t7  { width: 54px;  }
       .t8  { display: none; }
-      .t9  { width: 190px; top: -1%;  right: -3%; }
-      .t10 { width: 130px; bottom: 5%; right: 1%; }
+      .t9  { width: 192px; top: 12px;  right: 12px; }
+      .t10 { width: 120px; bottom: 18px; right: 30px; }
     }
   </style>
 </head>
