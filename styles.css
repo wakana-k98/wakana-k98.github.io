@@ -197,17 +197,17 @@ img { display: block; max-width: 100%; }
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
     sway-1           4.2s ease-in-out                        2.6s  infinite;
 }
-/* t2: Earbuds — left of title text, vertically aligned with it */
+/* t2: Earbuds — left gap between fan and bow */
 .t2 {
-  width: 220px; top: 330px; left: calc(50% - 245px);
+  width: 220px; top: 370px; left: 120px;
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
     sway-2           3.8s ease-in-out                        2.75s infinite;
 }
-/* t3: Cat — bigger, closer to title */
+/* t3: Cat — dropped slightly closer to center title */
 .t3 {
-  width: 210px; top: 150px; left: calc(50% - 360px);
+  width: 210px; top: 200px; left: calc(50% - 360px);
   z-index: 6;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
@@ -261,9 +261,9 @@ img { display: block; max-width: 100%; }
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s  forwards,
     sway-9           4.3s ease-in-out                        2.9s  infinite;
 }
-/* t10: Miffy bunny — raised so bottom isn't clipped, nudged left */
+/* t10: Miffy bunny — up and left toward center */
 .t10 {
-  width: 270px; top: 500px; right: 240px;
+  width: 270px; top: 450px; right: 275px;
   z-index: 5;
   animation:
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.4s  forwards,
