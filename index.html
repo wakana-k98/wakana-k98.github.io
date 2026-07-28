@@ -70,6 +70,12 @@
       border: 1.5px solid var(--border);
       box-shadow: 0 8px 24px var(--shadow-soft);
       z-index: 200;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .pill-nav--hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(14px);
     }
     .pill {
       font-size: 0.73rem;
@@ -84,29 +90,16 @@
     .pill.active { background: var(--sage); color: var(--white); }
 
     /* ── HERO ──────────────────────────────────────────── */
-    /* Three-column flex: [LEFT CLUSTER] [TITLE] [RIGHT CLUSTER] */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
       background: var(--cream);
       overflow: hidden;
     }
-
-    /* Cluster columns — full hero height, fixed width */
-    .hero-cluster {
-      position: relative;
-      align-self: stretch;
-      flex-shrink: 0;
-    }
-    .hero-cluster--left  { width: 370px; }
-    .hero-cluster--right { width: 460px; }
-
-    /* Center title column — grows to fill remaining space */
     .hero-center {
-      flex: 1;
-      min-width: 200px;
       text-align: center;
       z-index: 10;
       position: relative;
@@ -183,7 +176,6 @@
     }
 
     /* ── Entrance keyframes ─────────────────────────────── */
-    /* Left cluster enters from left; right cluster from right */
     @keyframes enter-from-left {
       0%   { opacity: 0; transform: translate(-900px, 0) scale(0.7); }
       100% { opacity: 1; transform: translate(0, 0) scale(1); }
@@ -193,7 +185,7 @@
       100% { opacity: 1; transform: translate(0, 0) scale(1); }
     }
 
-    /* ── Sway keyframes (25–32px amplitude) ───────────── */
+    /* ── Sway keyframes (25–30px amplitude) ───────────── */
     @keyframes sway-1  { 0%,100%{transform:translateX(0)    rotate(-1deg)  } 50%{transform:translateX(28px)  rotate(1.2deg) } }
     @keyframes sway-2  { 0%,100%{transform:translateX(0)    rotate(1.5deg) } 50%{transform:translateX(-26px) rotate(-1deg)  } }
     @keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-2deg)  } 50%{transform:translateX(24px)  rotate(1.8deg) } }
@@ -205,75 +197,83 @@
     @keyframes sway-9  { 0%,100%{transform:translateX(0)    rotate(2deg)   } 50%{transform:translateX(26px)  rotate(-1.5deg)} }
     @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-1.2deg)} 50%{transform:translateX(-24px) rotate(0.8deg) } }
 
-    /* ── LEFT CLUSTER: fan · earbuds · cat · bow · fish ── */
-    /* Items stagger left, distributed top-to-bottom in zigzag */
+    /* ── Trinket positions — Figma-matched ─────────────── */
 
-    .lc-fan {
-      width: 300px; top: 3%; left: 20px;
+    /* t1: Fan — top-left large anchor */
+    .t1 {
+      width: 430px; top: 10px; left: 0;
+      z-index: 3;
       animation:
-        enter-from-left 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
-        sway-1          4.2s ease-in-out                        2.6s  infinite;
+        enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
+        sway-1           4.2s ease-in-out                        2.6s  infinite;
     }
-    .lc-earbuds {
-      width: 175px; top: 26%; left: 4px;
+    /* t2: Earbuds — left side, mid-height */
+    .t2 {
+      width: 185px; top: 315px; left: 150px;
+      z-index: 5;
+      animation:
+        enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
+        sway-2           3.8s ease-in-out                        2.75s infinite;
+    }
+    /* t3: Cat — center-left, sits beside title */
+    .t3 {
+      width: 175px; top: 150px; left: calc(50% - 380px);
       z-index: 6;
       animation:
-        enter-from-left 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
-        sway-2          3.8s ease-in-out                        2.7s  infinite;
+        enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
+        sway-3           4.5s ease-in-out                        2.7s  infinite;
     }
-    .lc-cat {
-      width: 185px; top: 40%; left: 148px;
-      animation:
-        enter-from-left 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
-        sway-3          4.5s ease-in-out                        2.8s  infinite;
-    }
-    .lc-bow {
-      width: 215px; top: 67%; left: 40px;
-      animation:
-        enter-from-left 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s  forwards,
-        sway-4          3.5s ease-in-out                        2.9s  infinite;
-    }
-    .lc-fish {
-      width: 120px; bottom: 7%; left: 210px;
-      z-index: 6;
-      animation:
-        enter-from-left 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.4s  forwards,
-        sway-5          4.8s ease-in-out                        3.0s  infinite;
-    }
-
-    /* ── RIGHT CLUSTER: orchid · crane · star · matcha · miffy ── */
-    /* Orchid dominates top-right; others fill left column of cluster */
-
-    .rc-orchid {
-      width: 390px; top: 0; right: 0;
+    /* t4: Bow — bottom-left, large lace piece */
+    .t4 {
+      width: 248px; bottom: -5px; left: 14px;
       z-index: 4;
+      animation:
+        enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.25s forwards,
+        sway-4           3.5s ease-in-out                        2.85s infinite;
+    }
+    /* t5: Fish/taiyaki — center-bottom-left, small accent */
+    .t5 {
+      width: 100px; top: 560px; left: calc(50% - 390px);
+      z-index: 5;
+      animation:
+        enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s forwards,
+        sway-5           4.8s ease-in-out                        2.95s infinite;
+    }
+    /* t6: Orchid — top-right, dominant hero piece */
+    .t6 {
+      width: 450px; top: 5px; right: 0;
+      z-index: 3;
       animation:
         enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
         sway-6           3.7s ease-in-out                        2.6s  infinite;
     }
-    .rc-crane {
-      width: 165px; top: 4%; left: 10px;
+    /* t7: Crane — right of title, upper */
+    .t7 {
+      width: 162px; top: 115px; left: calc(50% + 100px);
       z-index: 6;
       animation:
         enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
         sway-7           4.8s ease-in-out                        2.7s  infinite;
     }
-    .rc-star {
-      width: 140px; top: 38%; left: 20px;
+    /* t8: Star button — right of title, mid */
+    .t8 {
+      width: 138px; top: 335px; left: calc(50% + 162px);
       z-index: 6;
       animation:
         enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
         sway-8           3.6s ease-in-out                        2.8s  infinite;
     }
-    .rc-matcha {
-      width: 155px; top: 58%; left: 40px;
-      z-index: 6;
+    /* t9: Matcha cup — far right, mid-height */
+    .t9 {
+      width: 185px; top: 410px; right: 55px;
+      z-index: 5;
       animation:
         enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s  forwards,
         sway-9           4.3s ease-in-out                        2.9s  infinite;
     }
-    .rc-miffy {
-      width: 290px; bottom: 3%; right: 10px;
+    /* t10: Miffy bunny — bottom-right */
+    .t10 {
+      width: 224px; top: 545px; right: 130px;
       z-index: 5;
       animation:
         enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.4s  forwards,
@@ -551,19 +551,17 @@
       .pill-nav { bottom: 1rem; padding: 0.4rem 0.55rem; }
       .pill { font-size: 0.68rem; padding: 0.27rem 0.7rem; }
 
-      /* Clusters — 70% scale on tablet */
-      .hero-cluster--left  { width: 260px; }
-      .hero-cluster--right { width: 330px; }
-      .lc-fan    { width: 210px; top: 3%;  left: 14px; }
-      .lc-earbuds{ width: 125px; top: 26%; left: 3px;  }
-      .lc-cat    { width: 130px; top: 40%; left: 104px; }
-      .lc-bow    { width: 150px; top: 67%; left: 28px; }
-      .lc-fish   { width: 84px;  bottom: 7%; left: 148px; }
-      .rc-orchid { width: 280px; top: 0; right: 0; }
-      .rc-crane  { width: 116px; top: 4%; left: 7px;  }
-      .rc-star   { width: 98px;  top: 38%; left: 14px; }
-      .rc-matcha { width: 109px; top: 58%; left: 28px; }
-      .rc-miffy  { width: 203px; bottom: 3%; right: 7px; }
+      /* Trinkets — scaled for tablet */
+      .t1  { width: 300px; }
+      .t2  { width: 130px; top: 220px; left: 105px; }
+      .t3  { width: 125px; top: 105px; }
+      .t4  { width: 174px; }
+      .t5  { width: 70px;  top: 392px; }
+      .t6  { width: 315px; }
+      .t7  { width: 113px; top: 80px; }
+      .t8  { width: 96px;  top: 234px; }
+      .t9  { width: 130px; top: 287px; right: 38px; }
+      .t10 { width: 157px; top: 381px; right: 91px; }
     }
 
     /* Mobile sway — reduced to ~14px amplitude */
@@ -580,11 +578,10 @@
       @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-0.9deg)} 50%{transform:translateX(-12px) rotate(0.7deg) } }
     }
 
-    /* Mobile — hide clusters, title-only hero */
+    /* Mobile — hide all trinkets, center-only hero */
     @media (max-width: 540px) {
-      .hero { justify-content: center; min-height: 60vh; }
-      .hero-cluster { display: none; }
-      .hero-center { width: 100%; padding: 0 2rem; }
+      .hero { min-height: 60vh; }
+      .trinket { display: none; }
       .hero-title    { font-size: 38px; }
       .hero-subtitle { font-size: 14px; }
       .skills-grid   { grid-template-columns: 1fr; }
@@ -608,16 +605,14 @@
 <!-- ─── HERO ────────────────────────────────────────────── -->
 <section class="hero" id="home">
 
-  <!-- Left cluster: fan · earbuds · cat · bow · fish -->
-  <div class="hero-cluster hero-cluster--left">
-    <div class="trinket lc-fan"><img src="assets/trinkets/fan.png" alt=""></div>
-    <div class="trinket lc-earbuds"><img src="assets/trinkets/earbuds.png" alt=""></div>
-    <div class="trinket lc-cat"><img src="assets/trinkets/cat.png" alt=""></div>
-    <div class="trinket lc-bow"><img src="assets/trinkets/bow.png" alt=""></div>
-    <div class="trinket lc-fish"><img src="assets/trinkets/fish.png" alt=""></div>
-  </div>
+  <!-- LEFT SIDE: fan · earbuds · cat · bow · fish -->
+  <div class="trinket t1"><img src="assets/trinkets/fan.png"     alt=""></div>
+  <div class="trinket t2"><img src="assets/trinkets/earbuds.png" alt=""></div>
+  <div class="trinket t3"><img src="assets/trinkets/cat.png"     alt=""></div>
+  <div class="trinket t4"><img src="assets/trinkets/bow.png"     alt=""></div>
+  <div class="trinket t5"><img src="assets/trinkets/fish.png"    alt=""></div>
 
-  <!-- Center: title · subtitle · nav links -->
+  <!-- CENTER: title · subtitle · nav -->
   <div class="hero-center">
     <h1 class="hero-title">wakana</h1>
     <p class="hero-subtitle">Making things feel easy is the hard part.</p>
@@ -629,14 +624,12 @@
     </nav>
   </div>
 
-  <!-- Right cluster: orchid · crane · star · matcha · miffy -->
-  <div class="hero-cluster hero-cluster--right">
-    <div class="trinket rc-orchid"><img src="assets/trinkets/orchid.png" alt=""></div>
-    <div class="trinket rc-crane"><img src="assets/trinkets/crane.png" alt=""></div>
-    <div class="trinket rc-star"><img src="assets/trinkets/star.png" alt=""></div>
-    <div class="trinket rc-matcha"><img src="assets/trinkets/matcha.png" alt=""></div>
-    <div class="trinket rc-miffy"><img src="assets/trinkets/miffy.png" alt=""></div>
-  </div>
+  <!-- RIGHT SIDE: orchid · crane · star · matcha · miffy -->
+  <div class="trinket t6"><img src="assets/trinkets/orchid.png"  alt=""></div>
+  <div class="trinket t7"><img src="assets/trinkets/crane.png"   alt=""></div>
+  <div class="trinket t8"><img src="assets/trinkets/star.png"    alt=""></div>
+  <div class="trinket t9"><img src="assets/trinkets/matcha.png"  alt=""></div>
+  <div class="trinket t10"><img src="assets/trinkets/miffy.png"  alt=""></div>
 
 </section>
 
@@ -843,6 +836,16 @@
 </section>
 
 <script>
+  // Hide pill-nav while hero is visible (hero-nav takes its place)
+  const pillNav  = document.getElementById('pill-nav');
+  const heroEl   = document.getElementById('home');
+  const heroVis  = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      pillNav.classList.toggle('pill-nav--hidden', entry.isIntersecting);
+    });
+  }, { threshold: 0.1 });
+  heroVis.observe(heroEl);
+
   // Active pill on scroll
   const sections = document.querySelectorAll('section[id]');
   const pills    = document.querySelectorAll('.pill[data-section]');
