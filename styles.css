@@ -224,7 +224,7 @@ img { display: block; max-width: 100%; }
 }
 /* t5: Fish/taiyaki — slightly higher and left */
 .t5 {
-  width: 190px; top: 510px; left: calc(50% - 320px);
+  width: 190px; top: 470px; left: calc(50% - 345px);
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s forwards,
