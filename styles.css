@@ -178,7 +178,7 @@ img { display: block; max-width: 100%; }
 /* ── Sway keyframes (25–30px amplitude) ───────────── */
 @keyframes sway-1  { 0%,100%{transform:translateX(0)    rotate(-1deg)  } 50%{transform:translateX(28px)  rotate(1.2deg) } }
 @keyframes sway-2  { 0%,100%{transform:translateX(0)    rotate(1.5deg) } 50%{transform:translateX(-26px) rotate(-1deg)  } }
-@keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-2deg)  } 50%{transform:translateX(24px)  rotate(1.8deg) } }
+@keyframes sway-3  { 0%,100%{transform:translateX(0)    rotate(-2deg)  } 50%{transform:translateX(14px)  rotate(1.8deg) } }
 @keyframes sway-4  { 0%,100%{transform:translateX(0)    rotate(0.5deg) } 50%{transform:translateX(-30px) rotate(-2deg)  } }
 @keyframes sway-5  { 0%,100%{transform:translateX(0)    rotate(2deg)   } 50%{transform:translateX(26px)  rotate(-1deg)  } }
 @keyframes sway-6  { 0%,100%{transform:translateX(0)    rotate(-1.5deg)} 50%{transform:translateX(-24px) rotate(1deg)   } }
@@ -197,17 +197,17 @@ img { display: block; max-width: 100%; }
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
     sway-1           4.2s ease-in-out                        2.6s  infinite;
 }
-/* t2: Earbuds — left side, mid-height */
+/* t2: Earbuds — closer to center, away from bow */
 .t2 {
-  width: 185px; top: 315px; left: 150px;
+  width: 220px; top: 380px; left: calc(50% - 310px);
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
     sway-2           3.8s ease-in-out                        2.75s infinite;
 }
-/* t3: Cat — center-left, sits beside title */
+/* t3: Cat — bigger, closer to title */
 .t3 {
-  width: 175px; top: 150px; left: calc(50% - 380px);
+  width: 210px; top: 150px; left: calc(50% - 360px);
   z-index: 6;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
@@ -221,9 +221,9 @@ img { display: block; max-width: 100%; }
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.25s forwards,
     sway-4           3.5s ease-in-out                        2.85s infinite;
 }
-/* t5: Fish/taiyaki — center-bottom-left, small accent */
+/* t5: Fish/taiyaki — bigger, closer to center */
 .t5 {
-  width: 100px; top: 560px; left: calc(50% - 390px);
+  width: 140px; top: 620px; left: calc(50% - 300px);
   z-index: 5;
   animation:
     enter-from-left  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s forwards,
@@ -237,33 +237,33 @@ img { display: block; max-width: 100%; }
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
     sway-6           3.7s ease-in-out                        2.6s  infinite;
 }
-/* t7: Crane — right of title, upper */
+/* t7: Crane — much bigger, closer to center */
 .t7 {
-  width: 162px; top: 115px; left: calc(50% + 100px);
+  width: 240px; top: 115px; left: calc(50% + 155px);
   z-index: 6;
   animation:
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
     sway-7           4.8s ease-in-out                        2.7s  infinite;
 }
-/* t8: Star button — right of title, mid */
+/* t8: Star button — pushed right so sway clears title */
 .t8 {
-  width: 138px; top: 335px; left: calc(50% + 162px);
+  width: 138px; top: 335px; left: calc(50% + 250px);
   z-index: 6;
   animation:
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
     sway-8           3.6s ease-in-out                        2.8s  infinite;
 }
-/* t9: Matcha cup — far right, mid-height */
+/* t9: Matcha cup — moved left toward center */
 .t9 {
-  width: 185px; top: 410px; right: 55px;
+  width: 185px; top: 390px; right: 160px;
   z-index: 5;
   animation:
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.3s  forwards,
     sway-9           4.3s ease-in-out                        2.9s  infinite;
 }
-/* t10: Miffy bunny — bottom-right */
+/* t10: Miffy bunny — bigger, shifted left */
 .t10 {
-  width: 224px; top: 545px; right: 130px;
+  width: 270px; top: 610px; right: 220px;
   z-index: 5;
   animation:
     enter-from-right 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.4s  forwards,
