@@ -213,72 +213,72 @@
     /* Phase 1: entrance (2s, once, forwards fill keeps opacity:1)  */
     /* Phase 2: sway (starts at entrance_delay + 2.1s, loops forever) */
 
-    /* Vintage fan — dominant left, large */
+    /* Vintage fan — dominant top-left, bleeds off edge */
     .t1 {
-      width: 230px; top: 4%;    left: 1%;
+      width: 310px; top: 1%;    left: -3%;
       animation:
         enter-from-topleft     2s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
         sway-1                 4.2s ease-in-out                      2.1s  infinite;
     }
     /* Earbuds — middle-left */
     .t2 {
-      width: 115px; top: 50%;   left: 3%;
+      width: 165px; top: 46%;   left: 1%;
       animation:
         enter-from-left        2s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
         sway-2                 3.8s ease-in-out                      2.2s  infinite;
     }
     /* Lace bow — bottom-left, large */
     .t3 {
-      width: 165px; bottom: 7%; left: 4%;
+      width: 230px; bottom: 4%; left: 1%;
       animation:
         enter-from-bottomleft  2s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
         sway-3                 4.5s ease-in-out                      2.25s infinite;
     }
-    /* Taiyaki fish — bottom-left-center, small accent */
+    /* Taiyaki fish — bottom-center-left, small accent */
     .t4 {
-      width: 88px;  bottom: 22%; left: 22%;
+      width: 115px; bottom: 20%; left: 22%;
       animation:
         enter-from-bottom      2s cubic-bezier(0.25,0.46,0.45,0.94) 0.22s forwards,
         sway-4                 3.5s ease-in-out                      2.32s infinite;
     }
     /* Origami crane — top-center */
     .t5 {
-      width: 125px; top: 12%;   left: 44%;
+      width: 180px; top: 7%;    left: 42%;
       animation:
         enter-from-top         2s cubic-bezier(0.25,0.46,0.45,0.94) 0.08s forwards,
         sway-5                 4.8s ease-in-out                      2.18s infinite;
     }
     /* Fortune cat — center-left of text */
     .t6 {
-      width: 145px; top: 36%;   left: 28%;
+      width: 190px; top: 32%;   left: 24%;
       animation:
         enter-from-left        2s cubic-bezier(0.25,0.46,0.45,0.94) 0.05s forwards,
         sway-6                 3.9s ease-in-out                      2.15s infinite;
     }
-    /* Yellow star button — center-right of text */
+    /* Yellow star — small accent, center-right of text */
     .t7 {
-      width: 90px;  top: 43%;   left: 60%;
+      width: 115px; top: 41%;   left: 61%;
       animation:
         enter-from-right       2s cubic-bezier(0.25,0.46,0.45,0.94) 0.12s forwards,
         sway-7                 3.6s ease-in-out                      2.22s infinite;
     }
     /* Matcha cup — right-center */
     .t8 {
-      width: 115px; top: 48%;   right: 5%;
+      width: 160px; top: 44%;   right: 3%;
       animation:
         enter-from-right       2s cubic-bezier(0.25,0.46,0.45,0.94) 0.18s forwards,
         sway-8                 4.3s ease-in-out                      2.28s infinite;
     }
-    /* Orchid — DOMINANT, top-right */
+    /* Orchid — DOMINANT, top-right, bleeds off edge */
     .t9 {
-      width: 330px; top: 2%;    right: 1%;
+      width: 420px; top: -3%;   right: -4%;
       animation:
         enter-from-topright    2s cubic-bezier(0.25,0.46,0.45,0.94) 0.06s forwards,
         sway-9                 3.7s ease-in-out                      2.16s infinite;
     }
     /* Miffy bunny — large, bottom-right */
     .t10 {
-      width: 195px; bottom: 5%; right: 4%;
+      width: 260px; bottom: 2%; right: 2%;
       animation:
         enter-from-bottomright 2s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
         sway-10                4.6s ease-in-out                      2.3s  infinite;
@@ -544,17 +544,17 @@
       .pill-nav { bottom: 1rem; padding: 0.4rem 0.55rem; }
       .pill { font-size: 0.68rem; padding: 0.27rem 0.7rem; }
 
-      /* Trinkets — scale proportionally on tablet */
-      .t1  { width: 140px; }
-      .t2  { width: 72px;  }
-      .t3  { width: 100px; }
-      .t4  { width: 56px;  }
-      .t5  { width: 78px;  }
-      .t6  { width: 90px;  }
-      .t7  { width: 56px;  }
-      .t8  { width: 72px;  }
-      .t9  { width: 200px; }
-      .t10 { width: 120px; }
+      /* Trinkets — scale ~60% on tablet */
+      .t1  { width: 185px; }
+      .t2  { width: 100px; }
+      .t3  { width: 140px; }
+      .t4  { width: 70px;  }
+      .t5  { width: 110px; }
+      .t6  { width: 115px; }
+      .t7  { width: 70px;  }
+      .t8  { width: 96px;  }
+      .t9  { width: 255px; }
+      .t10 { width: 158px; }
     }
 
     /* Mobile sway — reduced amplitude (~12px) */
@@ -577,17 +577,17 @@
       .skills-grid   { grid-template-columns: 1fr; }
       .contact-pills { flex-direction: column; align-items: center; }
 
-      /* Keep main statement pieces, hide mid crowders */
-      .t1  { width: 110px; top: 4%;    left: 0%; }
+      /* Mobile: keep big statement pieces, hide detail accents */
+      .t1  { width: 130px; top: 3%;    left: -2%; }
       .t2  { display: none; }
-      .t3  { width: 90px;  bottom: 8%; left: 2%; }
+      .t3  { width: 120px; bottom: 6%; left: 0%; }
       .t4  { display: none; }
-      .t5  { width: 65px;  top: 14%;  left: 40%; }
-      .t6  { width: 70px;  top: 40%;  left: 20%; }
-      .t7  { width: 50px;  top: 44%;  left: 62%; }
+      .t5  { width: 90px;  top: 10%;  left: 38%; }
+      .t6  { width: 95px;  top: 38%;  left: 18%; }
+      .t7  { width: 60px;  top: 43%;  left: 60%; }
       .t8  { display: none; }
-      .t9  { width: 160px; top: 2%;   right: 0%; }
-      .t10 { width: 100px; bottom: 5%; right: 2%; }
+      .t9  { width: 190px; top: -1%;  right: -3%; }
+      .t10 { width: 130px; bottom: 5%; right: 1%; }
     }
   </style>
 </head>
