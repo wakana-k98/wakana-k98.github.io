@@ -99,14 +99,14 @@
       position: relative;
     }
     .hero-title {
-      font-size: clamp(36px, 5vw, 42px);
+      font-size: clamp(44px, 6vw, 56px);
       font-weight: 600;
       color: var(--sage);
       letter-spacing: -0.01em;
       line-height: 1.1;
     }
     .hero-subtitle {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 400;
       color: var(--charcoal);
       letter-spacing: 0.01em;
@@ -177,77 +177,88 @@
     @keyframes sway-9  { 0%,100%{transform:translateX(0)    rotate(2deg)   } 50%{transform:translateX(28px)  rotate(-1.5deg)} }
     @keyframes sway-10 { 0%,100%{transform:translateX(0)    rotate(-1.2deg)} 50%{transform:translateX(-25px) rotate(0.8deg) } }
 
-    /* ── Trinket positions — Figma layout (entrance 2.5s) ── */
+    /* ── Trinket positions — MUCH LARGER for full-screen presence ── */
 
-    /* Fan: 240px, 80px from top, 40px from left */
+    /* Fan: 300px, top-left hero piece */
     .t1 {
-      width: 240px; top: 80px; left: 40px;
+      width: 300px; top: 60px; left: 30px;
       animation:
         enter-from-topleft     2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0s    forwards,
         sway-1                 4.2s ease-in-out                        2.6s  infinite;
     }
-    /* Earbuds: 120px, 350px from top, left edge */
+    /* Earbuds: 190px, left-center */
     .t2 {
-      width: 120px; top: 350px; left: 15px;
+      width: 190px; top: 330px; left: 10px;
       animation:
         enter-from-left        2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  forwards,
         sway-2                 3.8s ease-in-out                        2.7s  infinite;
     }
-    /* Bow: 160px, 500px from top, 30px from left */
+    /* Bow: 220px, lower-left */
     .t3 {
-      width: 160px; top: 500px; left: 30px;
+      width: 220px; top: 490px; left: 20px;
       animation:
         enter-from-bottomleft  2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s forwards,
         sway-3                 4.5s ease-in-out                        2.75s infinite;
     }
-    /* Fish: 90px, bottom-center-left */
+    /* Fish: 130px, bottom-center-left */
     .t4 {
-      width: 90px; bottom: 80px; left: calc(50% - 200px);
+      width: 130px; bottom: 70px; left: calc(50% - 220px);
       animation:
         enter-from-bottom      2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.22s forwards,
         sway-4                 3.5s ease-in-out                        2.82s infinite;
     }
-    /* Crane: 120px, top area right of center */
+    /* Crane: 170px, top right-of-center */
     .t5 {
-      width: 120px; top: 80px; left: calc(50% + 60px);
+      width: 170px; top: 60px; left: calc(50% + 20px);
       animation:
         enter-from-top         2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.08s forwards,
         sway-5                 4.8s ease-in-out                        2.68s infinite;
     }
-    /* Cat: 140px, center-left ~150px left of title */
+    /* Cat: 190px, center-left flanking title */
     .t6 {
-      width: 140px; top: calc(50% - 80px); left: calc(50% - 280px);
+      width: 190px; top: calc(50% - 100px); left: calc(50% - 320px);
       animation:
         enter-from-left        2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.05s forwards,
         sway-6                 3.9s ease-in-out                        2.65s infinite;
     }
-    /* Star: 90px, center-right ~100px right of title */
+    /* Star: 150px, center-right of title */
     .t7 {
-      width: 90px; top: calc(50% - 20px); left: calc(50% + 140px);
+      width: 150px; top: calc(50% - 35px); left: calc(50% + 100px);
       animation:
         enter-from-right       2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.12s forwards,
         sway-7                 3.6s ease-in-out                        2.72s infinite;
     }
-    /* Matcha: 110px, right-center */
+    /* Matcha: 170px, right-center */
     .t8 {
-      width: 110px; top: calc(50% - 30px); right: 60px;
+      width: 170px; top: calc(50% - 50px); right: 40px;
       animation:
         enter-from-right       2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.18s forwards,
         sway-8                 4.3s ease-in-out                        2.78s infinite;
     }
-    /* Orchid: 320px, top-right — 20px from top, 20px from right */
+    /* Orchid: 400px — HERO PIECE, dominant top-right */
     .t9 {
-      width: 320px; top: 20px; right: 20px;
+      width: 400px; top: 10px; right: 10px;
       animation:
         enter-from-topright    2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.06s forwards,
         sway-9                 3.7s ease-in-out                        2.66s infinite;
     }
-    /* Miffy: 200px, bottom-right — 30px from bottom, 50px from right */
+    /* Miffy: 300px, large presence bottom-right */
     .t10 {
-      width: 200px; bottom: 30px; right: 50px;
+      width: 300px; bottom: 20px; right: 30px;
       animation:
         enter-from-bottomright 2.5s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s  forwards,
         sway-10                4.6s ease-in-out                        2.8s  infinite;
+    }
+
+    /* ── Lace divider ──────────────────────────────────── */
+    .lace-divider {
+      width: 100%;
+      height: 22px;
+      /* Cream scallops protruding down into the sage-pale about section */
+      background:
+        radial-gradient(circle at 11px 0, var(--cream) 10px, transparent 11px);
+      background-size: 22px 22px;
+      background-color: var(--sage-pale);
     }
 
     /* ── ABOUT ─────────────────────────────────────────── */
@@ -510,17 +521,17 @@
       .pill-nav { bottom: 1rem; padding: 0.4rem 0.55rem; }
       .pill { font-size: 0.68rem; padding: 0.27rem 0.7rem; }
 
-      /* Trinkets — 75% scale on tablet */
-      .t1  { width: 180px; top: 60px;  left: 30px; }
-      .t2  { width: 90px;  top: 263px; left: 11px; }
-      .t3  { width: 120px; top: 375px; left: 22px; }
-      .t4  { width: 68px;  bottom: 60px; }
-      .t5  { width: 90px;  top: 60px; }
-      .t6  { width: 105px; }
-      .t7  { width: 68px;  }
-      .t8  { width: 83px;  right: 45px; }
-      .t9  { width: 240px; top: 15px; right: 15px; }
-      .t10 { width: 150px; bottom: 22px; right: 38px; }
+      /* Trinkets — 65% scale on tablet */
+      .t1  { width: 195px; top: 40px;  left: 20px; }
+      .t2  { width: 124px; top: 215px; left: 7px;  }
+      .t3  { width: 143px; top: 318px; left: 13px; }
+      .t4  { width: 85px;  bottom: 46px; left: calc(50% - 143px); }
+      .t5  { width: 110px; top: 40px;  left: calc(50% + 13px); }
+      .t6  { width: 124px; left: calc(50% - 208px); }
+      .t7  { width: 98px;  left: calc(50% + 65px); }
+      .t8  { width: 110px; right: 26px; }
+      .t9  { width: 260px; top: 7px;  right: 7px;  }
+      .t10 { width: 195px; bottom: 13px; right: 20px; }
     }
 
     /* Mobile sway — reduced to ~14px amplitude */
@@ -544,16 +555,16 @@
       .skills-grid   { grid-template-columns: 1fr; }
       .contact-pills { flex-direction: column; align-items: center; }
 
-      .t1  { width: 144px; top: 48px;  left: 24px; }
-      .t2  { width: 72px;  top: 210px; left: 9px;  }
-      .t3  { width: 96px;  top: 300px; left: 18px; }
-      .t4  { width: 54px;  bottom: 48px; left: calc(50% - 120px); }
-      .t5  { width: 72px;  top: 48px;  left: calc(50% + 36px); }
-      .t6  { width: 84px;  }
-      .t7  { width: 54px;  }
+      .t1  { width: 150px; top: 36px;  left: 16px; }
+      .t2  { width: 95px;  top: 170px; left: 6px;  }
+      .t3  { width: 110px; top: 260px; left: 10px; }
+      .t4  { width: 65px;  bottom: 36px; left: calc(50% - 110px); }
+      .t5  { width: 85px;  top: 36px;  left: calc(50% + 10px); }
+      .t6  { width: 95px;  left: calc(50% - 160px); }
+      .t7  { width: 75px;  left: calc(50% + 50px); }
       .t8  { display: none; }
-      .t9  { width: 192px; top: 12px;  right: 12px; }
-      .t10 { width: 120px; bottom: 18px; right: 30px; }
+      .t9  { width: 200px; top: 8px;   right: 8px;  }
+      .t10 { width: 150px; bottom: 12px; right: 16px; }
     }
   </style>
 </head>
@@ -590,6 +601,8 @@
   </div>
 
 </section>
+
+<div class="lace-divider" aria-hidden="true"></div>
 
 <!-- ─── ABOUT ───────────────────────────────────────────── -->
 <section class="about" id="about">
