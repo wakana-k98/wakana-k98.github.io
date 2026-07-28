@@ -3,1072 +3,712 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wakana Kuwayama · 届く</title>
+  <title>Wakana Kuwayama</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ── Design Tokens ───────────────────────────────────────── */
+    /* ── Design Tokens ─────────────────────────────────── */
     :root {
-      --sage:        #8fad88;
-      --sage-light:  #c8ddb5;
-      --sage-pale:   #eef5e8;
-      --sage-dark:   #2d3d2a;
-      --pink:        #f4a7b9;
-      --pink-pale:   #fde8ef;
-      --cream:       #fffdf8;
-      --red-stamp:   #e05c5c;
-      --ink:         #2d2a26;
-      --ink-soft:    #7a7265;
-      --border:      #d8e8d0;
-      --white:       #ffffff;
-      --cream-alpha: rgba(255, 253, 248, 0.92);
-      --cream-faded: rgba(255, 253, 248, 0.65);
-      --cream-mid:   rgba(255, 253, 248, 0.75);
-      --cream-dim:   rgba(255, 253, 248, 0.35);
-      --shadow-soft: rgba(45, 42, 38, 0.08);
-      --shadow-medium: rgba(45, 42, 38, 0.12);
-      --shadow-sage:  rgba(143, 173, 136, 0.25);
-      --sage-darkest: #1e2418;
-      --text-sage-muted:   #b8c4b0;
-      --text-pink-muted:   #c4b0b8;
-      --text-pink-badge:   #8b3a52;
-      --sage-glass-bg:     rgba(200, 221, 181, 0.12);
-      --sage-glass-border: rgba(200, 221, 181, 0.2);
-      --pink-glass-bg:     rgba(244, 167, 185, 0.1);
-      --pink-glass-border: rgba(244, 167, 185, 0.18);
-      --shadow-black:      rgba(0, 0, 0, 0.35);
+      --cream:       #FAFAF8;
+      --charcoal:    #2C2C2C;
+      --charcoal-soft: #5C5C5C;
+      --sage:        #8BA894;
+      --sage-pale:   #E8F1ED;
+      --sage-dark:   #5A7A64;
+      --border:      #E0E8E4;
+      --white:       #FFFFFF;
+      --shadow-soft: rgba(44, 44, 44, 0.08);
+      --shadow-med:  rgba(44, 44, 44, 0.13);
     }
 
-    /* ── Reset ───────────────────────────────────────────────── */
+    /* ── Reset ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    /* ── Base ────────────────────────────────────────────────── */
     body {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      background: var(--sage-pale);
-      color: var(--ink);
-      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 15px;
       line-height: 1.7;
       overflow-x: hidden;
     }
-
-    /* ── Typography ──────────────────────────────────────────── */
-    h1, h2, h3, h4 {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-weight: 500;
-    }
-
     a { color: inherit; text-decoration: none; }
-
     img { display: block; max-width: 100%; }
 
-    /* ── Utility ─────────────────────────────────────────────── */
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-weight: 500;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.2;
-      margin-bottom: 2.5rem;
-      color: var(--ink);
-    }
-
-    section { padding: 6rem 4rem; position: relative; }
-
-    /* ── Washi paper texture overlay ─────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Sections sit above texture */
-    section, nav, header { position: relative; z-index: 1; }
-
-    /* ── Logo Badge ──────────────────────────────────────────── */
+    /* ── Logo badge ────────────────────────────────────── */
     .logo-badge {
       position: fixed;
       top: 1.25rem;
       left: 1.5rem;
       z-index: 200;
-      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 0.8rem;
       font-weight: 500;
-      font-size: 1rem;
-      color: var(--ink);
-      background: var(--cream);
+      color: var(--charcoal);
+      background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 100px;
       padding: 0.3rem 0.9rem;
-      box-shadow: 0 2px 8px var(--shadow-soft);
+      letter-spacing: 0.04em;
       transition: background 0.2s;
     }
-    .logo-badge:hover { background: var(--sage-light); }
+    .logo-badge:hover { background: var(--sage-pale); }
 
-    /* ── Pill Nav ────────────────────────────────────────────── */
+    /* ── Pill nav ──────────────────────────────────────── */
     .pill-nav {
       position: fixed;
       bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 0.5rem;
-      background: var(--cream-alpha);
+      gap: 0.4rem;
+      background: rgba(250, 250, 248, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      padding: 0.55rem 0.75rem;
+      padding: 0.5rem 0.7rem;
       border-radius: 100px;
       border: 1.5px solid var(--border);
-      box-shadow: 0 8px 32px var(--shadow-medium);
+      box-shadow: 0 8px 24px var(--shadow-soft);
       z-index: 200;
     }
-
     .pill {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      padding: 0.35rem 0.9rem;
+      font-size: 0.73rem;
+      font-weight: 400;
+      color: var(--charcoal-soft);
+      padding: 0.32rem 0.85rem;
       border-radius: 100px;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
       white-space: nowrap;
     }
+    .pill:hover { color: var(--charcoal); background: var(--sage-pale); }
+    .pill.active { background: var(--sage); color: var(--white); }
 
-    .pill:hover { color: var(--ink); background: var(--sage-pale); }
-
-    .pill.active {
-      background: var(--sage);
-      color: var(--white);
-    }
-
-    /* ── Hero ────────────────────────────────────────────────── */
+    /* ── HERO ──────────────────────────────────────────── */
     .hero {
+      position: relative;
       min-height: 100vh;
-      background: var(--sage-pale);
-      display: flex;
-      align-items: center;
-      padding: 8rem 4rem 5rem;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    /* Text */
-    .hero-jp {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-size: 0.85rem;
-      color: var(--sage);
-      letter-spacing: 0.18em;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.1s;
-    }
-
-    .hero-name {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 0.6rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
-    }
-
-    .hero-tagline {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-size: 1.05rem;
-      color: var(--sage);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.35s;
-    }
-
-    .tagline-jp {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .hero-oneliner {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-weight: 300;
-      font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--ink-soft);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.45s;
-    }
-
-    .hero-bio {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.55s;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.7s;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1.5rem;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-radius: 100px;
-      transition: all 0.22s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--sage);
-      color: var(--white);
-    }
-    .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); }
-
-    .btn-outline {
-      border: 1.5px solid var(--border);
-      color: var(--ink);
-      background: var(--cream);
-    }
-    .btn-outline:hover { border-color: var(--sage); background: var(--sage-light); transform: translateY(-2px); }
-
-    /* Animal column */
-    .hero-animal {
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.3s;
-    }
-
-    .animal-float {
-      width: 100%;
-      max-width: 380px;
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0 16px 32px var(--shadow-sage));
-    }
-
-    /* Sakura petals */
-    .sakura {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
+      background: var(--cream);
       overflow: hidden;
     }
 
-    .petal {
-      position: absolute;
-      top: -20px;
-      width: 10px;
-      height: 10px;
-      background: var(--pink);
-      border-radius: 50% 0 50% 0;
-      opacity: 0.6;
-      animation: sakura-fall linear infinite;
-    }
-
-    /* ── Animations ──────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50%       { transform: translateY(-12px) rotate(1deg); }
-    }
-
-    @keyframes sakura-fall {
-      0%   { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* ── About ───────────────────────────────────────────────── */
-    .about {
-      background: var(--sage-darkest);
-      color: var(--cream);
-      padding: 6rem 4rem 8rem;
-      overflow: visible;
-    }
-
-    .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    .hero-center {
+      text-align: center;
+      z-index: 10;
       position: relative;
     }
+    .hero-title {
+      font-size: clamp(36px, 6vw, 48px);
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--sage);
+      letter-spacing: 0.1em;
+      margin-top: 0.45rem;
+    }
 
-    /* Hanko stamp */
-    .hanko {
+    /* ── Trinkets ──────────────────────────────────────── */
+    .trinket {
       position: absolute;
-      top: -1rem;
-      right: 0;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2.5px solid var(--red-stamp);
-      color: var(--red-stamp);
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-size: 0.55rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      letter-spacing: 0.05em;
-      transform: rotate(-18deg);
-      opacity: 0.85;
+      z-index: 5;
+    }
+    .trinket img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 14px var(--shadow-med));
+    }
+    .trinket:hover img {
+      filter: drop-shadow(0 6px 20px rgba(139, 168, 148, 0.35));
     }
 
-    /* Grid */
-    .about-grid {
+    /* Positions + sizes + individual sway animations */
+    .t1 { width: 80px;  top: 8%;   left: 6%;    animation: sway-1 3.8s ease-in-out infinite; }
+    .t2 { width: 70px;  top: 10%;  right: 8%;   animation: sway-2 4.2s ease-in-out infinite 0.6s; }
+    .t3 { width: 90px;  bottom: 18%; left: 7%;  animation: sway-3 3.5s ease-in-out infinite 1.2s; }
+    .t4 { width: 65px;  top: 45%;  left: 3%;    animation: sway-4 4.8s ease-in-out infinite 0.3s; }
+    .t5 { width: 75px;  top: 22%;  right: 5%;   animation: sway-5 3.9s ease-in-out infinite 1.5s; }
+    .t6 { width: 85px;  bottom: 28%; right: 5%; animation: sway-6 4.5s ease-in-out infinite 0.9s; }
+    .t7 { width: 72px;  bottom: 10%; right: 14%; animation: sway-7 3.6s ease-in-out infinite 2.1s; }
+    .t8 { width: 68px;  top: 62%;  left: 8%;    animation: sway-8 4.3s ease-in-out infinite 0.4s; }
+    .t9 { width: 78px;  top: 5%;   left: 42%;   animation: sway-9 3.7s ease-in-out infinite 1.8s; }
+
+    /* Sway keyframes — each goes a different direction and distance */
+    @keyframes sway-1 {
+      0%, 100% { transform: translateX(0)    rotate(-1deg);  }
+      50%       { transform: translateX(22px) rotate(1.5deg); }
+    }
+    @keyframes sway-2 {
+      0%, 100% { transform: translateX(0)     rotate(1deg);   }
+      50%       { transform: translateX(-26px) rotate(-1deg); }
+    }
+    @keyframes sway-3 {
+      0%, 100% { transform: translateX(0)    rotate(-2deg); }
+      50%       { transform: translateX(20px) rotate(2deg);  }
+    }
+    @keyframes sway-4 {
+      0%, 100% { transform: translateX(0)     rotate(0.5deg);  }
+      50%       { transform: translateX(-28px) rotate(-1.5deg); }
+    }
+    @keyframes sway-5 {
+      0%, 100% { transform: translateX(0)    rotate(1.5deg);  }
+      50%       { transform: translateX(24px) rotate(-0.5deg); }
+    }
+    @keyframes sway-6 {
+      0%, 100% { transform: translateX(0)     rotate(-1.5deg); }
+      50%       { transform: translateX(-22px) rotate(1deg);   }
+    }
+    @keyframes sway-7 {
+      0%, 100% { transform: translateX(0)    rotate(2deg);  }
+      50%       { transform: translateX(30px) rotate(-2deg); }
+    }
+    @keyframes sway-8 {
+      0%, 100% { transform: translateX(0)     rotate(-0.5deg); }
+      50%       { transform: translateX(-25px) rotate(0.5deg); }
+    }
+    @keyframes sway-9 {
+      0%, 100% { transform: translateX(0)    rotate(1deg);   }
+      50%       { transform: translateX(18px) rotate(-1.5deg); }
+    }
+
+    /* ── ABOUT ─────────────────────────────────────────── */
+    .about { background: var(--sage-pale); padding: 6rem 4rem; }
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 220px 1fr 280px;
-      gap: 2.5rem;
+      grid-template-columns: 210px 1fr;
+      gap: 3.5rem;
       align-items: start;
-      margin-top: 1.5rem;
     }
 
-    /* Polaroid */
+    .section-label {
+      display: block;
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 1.6rem;
+      line-height: 1.2;
+    }
+
     .polaroid {
-      background: var(--cream);
-      padding: 0.75rem 0.75rem 2rem;
-      box-shadow: 0 8px 24px var(--shadow-black);
-      transform: rotate(-2deg);
+      background: var(--white);
+      padding: 0.65rem 0.65rem 2rem;
+      box-shadow: 0 6px 24px var(--shadow-soft);
+      transform: rotate(-1.5deg);
     }
-
-    .polaroid-img-placeholder {
+    .polaroid img {
       width: 100%;
       aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--sage-light), var(--pink-pale));
-      border-radius: 2px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
     }
-
     .polaroid-caption {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-size: 0.78rem;
-      color: var(--ink-soft);
       text-align: center;
-      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--charcoal-soft);
+      margin-top: 0.5rem;
     }
 
-    /* Bio text */
-    .about-text p {
-      font-size: 0.93rem;
+    .about-bio p {
+      font-size: 0.88rem;
+      color: var(--charcoal-soft);
       line-height: 1.85;
-      color: var(--text-sage-muted);
-      margin-bottom: 1rem;
-    }
-
-    .about-text p strong { color: var(--cream); font-weight: 500; }
-
-    /* Sticky notes */
-    .sticky-note {
-      border-radius: 12px;
-      padding: 1.1rem 1.2rem;
       margin-bottom: 0.9rem;
-      font-size: 0.82rem;
-      line-height: 1.7;
     }
+    .about-bio strong { color: var(--charcoal); font-weight: 500; }
 
-    .sticky-note h4 {
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.4rem;
+    }
+    .about-tag {
       font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 400;
+      padding: 0.22rem 0.7rem;
+      border-radius: 100px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--charcoal-soft);
     }
 
-    .sticky-sage {
-      background: var(--sage-glass-bg);
-      border: 1px solid var(--sage-glass-border);
-      color: var(--text-sage-muted);
-    }
-    .sticky-sage h4 { color: var(--sage-light); }
+    /* ── PROJECTS ──────────────────────────────────────── */
+    .projects { background: var(--cream); padding: 6rem 4rem; }
+    .projects-inner { max-width: 900px; margin: 0 auto; }
 
-    .sticky-pink {
-      background: var(--pink-glass-bg);
-      border: 1px solid var(--pink-glass-border);
-      color: var(--text-pink-muted);
-    }
-    .sticky-pink h4 { color: var(--pink); }
-
-    /* Wombat */
-    .about-wombat {
-      position: absolute;
-      bottom: -100px;
-      right: -40px;
-      width: 200px;
-      pointer-events: none;
-    }
-
-    .about-wombat img { width: 100%; animation: float 5s ease-in-out infinite 1s; }
-
-    /* ── Projects ────────────────────────────────────────────── */
-    .projects { background: var(--sage-pale); padding: 6rem 4rem; }
-
-    .projects-inner { max-width: 1100px; margin: 0 auto; position: relative; }
-
-    /* Corgi */
-    .projects-corgi {
-      width: 220px;
-      margin: 0 auto 2rem;
-    }
-    .projects-corgi img { width: 100%; animation: float 4.5s ease-in-out infinite 0.5s; }
-
-    /* Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.8rem;
+      gap: 1.4rem;
     }
-
-    /* Cards */
     .project-card {
-      background: var(--cream);
+      background: var(--white);
+      border: 1.5px solid var(--border);
       border-radius: 16px;
-      overflow: visible;
-      position: relative;
-      padding-top: 14px;
-      box-shadow: 0 4px 20px var(--shadow-soft);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 1.4rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-
-    .project-card:nth-child(odd)  { transform: rotate(-1.2deg); }
-    .project-card:nth-child(even) { transform: rotate(0.8deg); }
-    .project-card:hover { transform: rotate(0deg) translateY(-6px); box-shadow: 0 12px 36px var(--shadow-medium); }
-
-    /* Washi tape strips */
-    .washi-tape {
-      position: absolute;
-      top: -8px;
-      left: 20px;
-      width: 56px;
-      height: 20px;
-      border-radius: 3px;
-      opacity: 0.85;
-      background: var(--sage-light);
-      transform: rotate(-2deg);
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px var(--shadow-soft);
     }
-
-    .washi-tape::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 200px;
-      width: 48px;
-      height: 20px;
-      border-radius: 3px;
-      background: var(--pink-pale);
-      border: 1px solid var(--pink);
-      transform: rotate(2deg);
-      opacity: 0.9;
-    }
-
-    .project-body { padding: 1.2rem 1.4rem 1.4rem; }
-
-    /* Award stamps */
-    .award-stamp {
+    .project-badge {
       display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
+      font-size: 0.61rem;
+      font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--sage-dark);
-      background: var(--sage-light);
-      border: 1px solid var(--sage);
-      padding: 0.2rem 0.65rem;
+      background: var(--sage-pale);
+      border: 1px solid var(--border);
+      padding: 0.18rem 0.6rem;
       border-radius: 100px;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
     }
-
-    .award-pink {
-      color: var(--text-pink-badge);
-      background: var(--pink-pale);
-      border-color: var(--pink);
+    .project-badge.pink {
+      color: #7a4a5a;
+      background: #fce8ef;
+      border-color: #f0c0d0;
     }
-
     .project-card h3 {
-      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 1rem;
       font-weight: 500;
-      font-size: 1.15rem;
-      color: var(--ink);
       margin-bottom: 0.2rem;
     }
-
     .project-date {
-      font-size: 0.72rem;
-      color: var(--ink-soft);
-      margin-bottom: 0.65rem;
+      font-size: 0.68rem;
+      color: var(--charcoal-soft);
+      margin-bottom: 0.6rem;
     }
-
     .project-desc {
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 1rem;
+      font-size: 0.81rem;
+      color: var(--charcoal-soft);
+      line-height: 1.72;
+      margin-bottom: 0.9rem;
     }
-
     .project-footer {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem;
-      padding-top: 0.75rem;
+      padding-top: 0.7rem;
       border-top: 1px solid var(--border);
     }
-
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; }
     .tag {
-      font-size: 0.65rem;
+      font-size: 0.61rem;
       font-weight: 500;
-      padding: 0.2rem 0.6rem;
+      padding: 0.17rem 0.55rem;
       border-radius: 100px;
       background: var(--sage-pale);
       color: var(--sage-dark);
-      border: 1px solid var(--sage-light);
+      border: 1px solid var(--border);
     }
-
     .project-link {
-      font-size: 0.75rem;
+      font-size: 0.71rem;
       font-weight: 500;
       color: var(--sage);
       transition: color 0.2s;
       white-space: nowrap;
     }
     .project-link:hover { color: var(--sage-dark); }
+    .project-links { display: flex; gap: 0.5rem; }
 
-    .project-links { display: flex; gap: 0.6rem; }
-
-    /* ── Skills ──────────────────────────────────────────────── */
-    .skills { background: var(--sage-light); }
-
-    .skills-inner { max-width: 1100px; margin: 0 auto; }
+    /* ── SKILLS ────────────────────────────────────────── */
+    .skills { background: var(--sage-pale); padding: 6rem 4rem; }
+    .skills-inner { max-width: 900px; margin: 0 auto; }
 
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      gap: 1.1rem;
     }
-
     .skill-envelope {
-      background: var(--cream);
-      border-radius: 16px;
-      padding: 1.3rem 1.4rem;
+      background: var(--white);
       border: 1.5px solid var(--border);
-      box-shadow: 0 2px 12px var(--shadow-soft);
+      border-radius: 14px;
+      padding: 1.2rem 1.3rem;
     }
-
     .skill-envelope h4 {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: 0.61rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 0.75rem;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
+      margin-bottom: 0.65rem;
     }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; }
 
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-
-    .skill-tags .tag {
-      background: var(--sage-pale);
-      border-color: var(--sage-light);
-      color: var(--ink);
-    }
-
-    /* ── Contact ─────────────────────────────────────────────── */
+    /* ── CONTACT ───────────────────────────────────────── */
     .contact {
-      background: var(--sage-dark);
+      background: var(--charcoal);
       color: var(--cream);
       text-align: center;
       padding: 6rem 4rem 3rem;
     }
-
-    .contact-inner { max-width: 640px; margin: 0 auto; }
-
+    .contact-inner { max-width: 540px; margin: 0 auto; }
     .contact-heading {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 500;
       color: var(--cream);
-      margin-bottom: 1rem;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
     }
-
     .contact-sub {
-      font-size: 0.92rem;
-      color: var(--cream-faded);
-      margin-bottom: 2.5rem;
+      font-size: 0.87rem;
+      color: rgba(250, 250, 248, 0.5);
+      margin-bottom: 2.2rem;
       line-height: 1.7;
     }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
+    .contact-links { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
     .stamp-btn {
       display: inline-block;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       font-weight: 500;
-      color: var(--red-stamp);
-      border: 2px solid var(--red-stamp);
+      color: var(--sage);
+      border: 1.5px solid var(--sage);
       border-radius: 100px;
-      padding: 0.65rem 1.8rem;
-      transition: all 0.22s ease;
+      padding: 0.6rem 1.7rem;
+      transition: all 0.2s ease;
       letter-spacing: 0.02em;
     }
     .stamp-btn:hover {
-      background: var(--red-stamp);
-      color: var(--cream);
+      background: var(--sage);
+      color: var(--charcoal);
       transform: translateY(-2px);
     }
-
-    .contact-pills { display: flex; gap: 0.75rem; }
-
+    .contact-pills { display: flex; gap: 0.65rem; }
     .btn-outline-light {
-      border: 1.5px solid var(--sage-glass-border);
-      color: var(--cream-mid);
-      background: transparent;
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      padding: 0.5rem 1.3rem;
+      font-size: 0.77rem;
+      font-weight: 400;
+      color: rgba(250, 250, 248, 0.55);
+      border: 1.5px solid rgba(250, 250, 248, 0.18);
+      padding: 0.45rem 1.2rem;
       border-radius: 100px;
-      transition: all 0.22s ease;
+      transition: all 0.2s ease;
     }
     .btn-outline-light:hover {
-      border-color: var(--sage-light);
       color: var(--cream);
-      background: var(--sage-glass-bg);
+      border-color: var(--sage);
+      background: rgba(139, 168, 148, 0.12);
       transform: translateY(-2px);
     }
-
-    /* Footer */
     .footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--sage-glass-border);
-      font-size: 0.78rem;
+      margin-top: 3.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(250, 250, 248, 0.1);
+      font-size: 0.74rem;
+      color: rgba(250, 250, 248, 0.22);
       letter-spacing: 0.04em;
-      color: var(--cream-dim);
     }
 
-    /* ── Scroll Reveal ───────────────────────────────────────── */
+    /* ── Scroll Reveal ─────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Mobile ──────────────────────────────────────────────── */
+    /* ── Mobile ────────────────────────────────────────── */
     @media (max-width: 900px) {
       section { padding: 5rem 2rem; }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-animal { order: -1; }
-      .animal-float { max-width: 240px; margin: 0 auto; }
-      .hero-links { justify-content: center; }
-      .hero-bio { margin: 0 auto 2rem; }
-
-      .about-grid { grid-template-columns: 1fr; }
-      .about-wombat { display: none; }
-
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
       .projects-grid { grid-template-columns: 1fr; }
-
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .pill-nav { bottom: 1rem; padding: 0.4rem 0.55rem; }
+      .pill { font-size: 0.68rem; padding: 0.27rem 0.7rem; }
 
-      .pill-nav { bottom: 1rem; padding: 0.45rem 0.6rem; }
-      .pill { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+      /* Smaller trinkets */
+      .t1, .t2, .t3, .t4, .t5, .t6, .t7, .t8, .t9 { width: 48px; }
     }
-
     @media (max-width: 540px) {
-      .hero-name { font-size: 2.4rem; }
+      .hero-title { font-size: 32px; }
       .skills-grid { grid-template-columns: 1fr; }
-      .pill { font-size: 0.68rem; padding: 0.28rem 0.55rem; }
       .contact-pills { flex-direction: column; align-items: center; }
+      /* Hide deep-side trinkets so they don't crowd text */
+      .t4, .t8 { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo badge -->
-  <a class="logo-badge" href="#home">わかな</a>
+<!-- Logo badge -->
+<a class="logo-badge" href="#home">wakana</a>
 
-  <!-- Bottom pill nav -->
-  <nav class="pill-nav" id="pill-nav">
-    <a class="pill" href="#about" data-section="about">🐾 about</a>
-    <a class="pill" href="#projects" data-section="projects">🌿 projects</a>
-    <a class="pill" href="#skills" data-section="skills">✨ skills</a>
-    <a class="pill" href="#contact" data-section="contact">✉️ contact</a>
-  </nav>
+<!-- Pill nav -->
+<nav class="pill-nav" id="pill-nav">
+  <a class="pill" href="#about"    data-section="about">about</a>
+  <a class="pill" href="#projects" data-section="projects">projects</a>
+  <a class="pill" href="#skills"   data-section="skills">skills</a>
+  <a class="pill" href="#contact"  data-section="contact">contact</a>
+</nav>
 
-  <section class="hero" id="home">
-    <!-- Sakura petals -->
-    <div class="sakura" aria-hidden="true">
-      <span class="petal" style="left:8%;animation-delay:0s;animation-duration:9s"></span>
-      <span class="petal" style="left:22%;animation-delay:2s;animation-duration:11s"></span>
-      <span class="petal" style="left:45%;animation-delay:1s;animation-duration:8s"></span>
-      <span class="petal" style="left:62%;animation-delay:3.5s;animation-duration:10s"></span>
-      <span class="petal" style="left:78%;animation-delay:0.5s;animation-duration:12s"></span>
-      <span class="petal" style="left:88%;animation-delay:2.5s;animation-duration:9.5s"></span>
-    </div>
+<!-- ─── HERO ────────────────────────────────────────────── -->
+<section class="hero" id="home">
 
-    <div class="hero-content">
-      <!-- Text column -->
-      <div class="hero-text">
-        <p class="hero-jp">わかな</p>
-        <h1 class="hero-name">Hi, I'm Wakana.</h1>
-        <p class="hero-tagline"><span class="tagline-jp">届く</span> · todoku</p>
-        <p class="hero-oneliner">Making things feel easy is the hard part.</p>
-        <p class="hero-bio">I'm a third-year Cognitive Systems student at UBC, specializing in Computational Intelligence and Design. I'm passionate about creating digital experiences that actually matter — tools that feel intuitive, designs that spark connection, and code that solves real problems for real people.</p>
-        <div class="hero-links">
-          <a href="#projects" class="btn btn-primary">See my work ↓</a>
-          <a href="https://github.com/wakana-k98" target="_blank" class="btn btn-outline">GitHub</a>
-          <a href="https://www.linkedin.com/in/wakana-k/" target="_blank" class="btn btn-outline">LinkedIn</a>
-        </div>
-      </div>
+  <div class="trinket t1"><img src="assets/trinkets/creamstar.webp"        alt=""></div>
+  <div class="trinket t2"><img src="assets/trinkets/shinystar.webp"        alt=""></div>
+  <div class="trinket t3"><img src="assets/trinkets/yellow.star.webp"      alt=""></div>
+  <div class="trinket t4"><img src="assets/trinkets/greenpin.webp"         alt=""></div>
+  <div class="trinket t5"><img src="assets/trinkets/cutefan.webp"          alt=""></div>
+  <div class="trinket t6"><img src="assets/trinkets/orchid.webp"           alt=""></div>
+  <div class="trinket t7"><img src="assets/trinkets/miffy.headphone.webp"  alt=""></div>
+  <div class="trinket t8"><img src="assets/trinkets/jiji.webp"             alt=""></div>
+  <div class="trinket t9"><img src="assets/trinkets/sakura.webp"           alt=""></div>
 
-      <!-- Animal column -->
-      <div class="hero-animal">
-        <img src="assets/animals/capybara.png" alt="Kawaii capybara illustration" class="animal-float"/>
-      </div>
-    </div>
-  </section>
+  <div class="hero-center">
+    <h1 class="hero-title">wakana</h1>
+    <p class="hero-subtitle">freelance creative</p>
+  </div>
 
-  <section class="about" id="about">
-    <div class="about-inner">
+</section>
 
-      <!-- Hanko stamp -->
-      <div class="hanko" aria-hidden="true">について</div>
+<!-- ─── ABOUT ───────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
 
-      <p class="section-label" style="color:var(--sage-light)">About me</p>
-      <h2 class="section-title" style="color:var(--cream)">Building at the edge of<br>design &amp; code.</h2>
-
-      <div class="about-grid reveal">
-        <!-- Photo -->
-        <div class="about-photo-wrap">
-          <div class="polaroid">
-            <img src="assets/photo.jpg" alt="Wakana Kuwayama" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:2px;display:block;">
-            <p class="polaroid-caption">wakana ✿</p>
-          </div>
-        </div>
-
-        <!-- Bio text -->
-        <div class="about-text">
-          <p>I'm a <strong>third-year Cognitive Systems student at UBC</strong>, specializing in Computational Intelligence and Design. That background shapes everything I build — I'm always thinking about the person on the other side of the screen.</p>
-          <p>My goal is to create things that are not just functional, but genuinely <strong>intuitive, inclusive, and meaningful</strong>. I care deeply about the details that make a product feel thoughtful rather than just built.</p>
-          <p>Currently interning as an <strong>AI Implementation Intern at Kobalt.io</strong>, and always excited about the intersection of design, intelligence, and human experience.</p>
-        </div>
-
-        <!-- Detail sticky notes -->
-        <div class="about-details">
-          <div class="sticky-note sticky-sage">
-            <h4>🎓 Education</h4>
-            <p><strong>University of British Columbia</strong><br>BSc Cognitive Systems, Computational Intelligence and Design</p>
-            <p style="margin-top:0.5rem;font-size:0.78rem;opacity:0.8">Software Construction · Data Structures &amp; Algorithms · Machine Learning · HCI Design · Models of Computation</p>
-          </div>
-          <div class="sticky-note sticky-pink">
-            <h4>⚡ Currently</h4>
-            <p>🤖 AI Implementation Intern at Kobalt.io</p>
-            <p>👩‍🏫 TA at UBC Computer Science</p>
-            <p>💻 IT Staff at UBC Sauder</p>
-            <p>🔬 VP Internal at UBC Women in Science</p>
-          </div>
-          <div class="sticky-note sticky-sage">
-            <h4>🌱 Outside of work</h4>
-            <p>🎨 Digital design &amp; visual storytelling</p>
-            <p>🎵 Going to concerts &amp; making music</p>
-            <p>🍜 Trying new restaurants &amp; cuisines</p>
-            <p>✂️ Crafts, creative projects &amp; DIY</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wombat peeking -->
-      <div class="about-wombat">
-        <img src="assets/animals/wombat.png" alt="Kawaii wombat saying hi" class="animal-float"/>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="projects" id="projects">
-    <div class="projects-inner">
-      <p class="section-label">Featured Projects</p>
-      <h2 class="section-title">Things I've<br>built.</h2>
-
-      <!-- Corgi -->
-      <div class="projects-corgi reveal">
-        <img src="assets/animals/corgi.png" alt="Kawaii corgi illustration" class="animal-float"/>
-      </div>
-
-      <div class="projects-grid reveal">
-
-        <!-- MemoryLane -->
-        <article class="project-card">
-          <div class="washi-tape"></div>
-          <div class="project-body">
-            <span class="award-stamp">✦ Hack the Coast 2026</span>
-            <h3>MemoryLane</h3>
-            <p class="project-date">In development</p>
-            <p class="project-desc">A voice-first mobile app designed for seniors experiencing cognitive decline, helping them record and revisit personal memories through guided prompts and calm, accessible design. Built with minimal navigation and ElevenLabs voice integration to reduce cognitive load.</p>
-            <div class="project-footer">
-              <div class="tech-tags">
-                <span class="tag">React Native</span>
-                <span class="tag">Expo</span>
-                <span class="tag">ElevenLabs API</span>
-                <span class="tag">Figma</span>
-              </div>
-              <a href="https://devpost.com/software/memorylane-kig729" target="_blank" class="project-link">Devpost ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Ripple -->
-        <article class="project-card">
-          <div class="washi-tape"></div>
-          <div class="project-body">
-            <span class="award-stamp award-pink">✦ nwHacks 2026 Best Wellness Runner-up</span>
-            <h3>Ripple</h3>
-            <p class="project-date">January 2026</p>
-            <p class="project-desc">A privacy-first mobile app to reduce student loneliness through anonymous, event-based connections. Led end-to-end UX from problem framing to high-fidelity prototypes, integrating audio-based interactions that prioritize emotional safety over social metrics.</p>
-            <div class="project-footer">
-              <div class="tech-tags">
-                <span class="tag">React Native</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Expo</span>
-                <span class="tag">Figma</span>
-                <span class="tag">REST APIs</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
-                <a href="https://devpost.com/software/wellnest-86zhuv" target="_blank" class="project-link">Devpost ↗</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- BentoBuddies -->
-        <article class="project-card">
-          <div class="washi-tape"></div>
-          <div class="project-body">
-            <span class="award-stamp">✦ HackCamp 2025 Finalist · Best Accessible Design</span>
-            <h3>BentoBuddies</h3>
-            <p class="project-date">November 2025</p>
-            <p class="project-desc">A responsive web app connecting UBC students to find dining partners. Designed WCAG-compliant accessible interfaces and integrated Google Maps API for campus-wide discovery. Built with a team of 4 out of 300 participants, 64 teams.</p>
-            <div class="project-footer">
-              <div class="tech-tags">
-                <span class="tag">HTML/CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Google Maps API</span>
-                <span class="tag">Figma</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
-                <a href="https://devpost.com/software/food-buddy-finder" target="_blank" class="project-link">Devpost ↗</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Downtime -->
-        <article class="project-card">
-          <div class="washi-tape"></div>
-          <div class="project-body">
-            <span class="award-stamp award-pink">✦ UXathon 2026</span>
-            <h3>Downtime</h3>
-            <p class="project-date">January 2026</p>
-            <p class="project-desc">A UX concept empowering teenagers to disconnect without social anxiety. Conducted user research with teens (16–18), synthesizing insights into personas, user journeys, and a high-fidelity Figma prototype with automated status messaging and affirming microcopy.</p>
-            <div class="project-footer">
-              <div class="tech-tags">
-                <span class="tag">Figma</span>
-                <span class="tag">UX Research</span>
-                <span class="tag">Prototyping</span>
-              </div>
-              <div class="project-links">
-                <a href="https://devpost.com/software/downtime-3nepfm" target="_blank" class="project-link">Figma ↗</a>
-                <a href="https://devpost.com/software/downtime-3nepfm" target="_blank" class="project-link">Devpost ↗</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-
+    <div>
+      <div class="polaroid">
+        <img src="assets/photo.jpg" alt="Wakana Kuwayama">
+        <p class="polaroid-caption">wakana ✿</p>
       </div>
     </div>
-  </section>
 
-  <section class="skills" id="skills">
-    <div class="skills-inner">
-      <p class="section-label">Technical Skills</p>
-      <h2 class="section-title">What I<br>work with.</h2>
+    <div class="about-bio">
+      <span class="section-label">About me</span>
+      <h2 class="section-title reveal">Building at the edge of<br>design &amp; code.</h2>
+      <p class="reveal">I'm a <strong>third-year Cognitive Systems student at UBC</strong>, specializing in Computational Intelligence and Design. That background shapes everything I build — I'm always thinking about the person on the other side of the screen.</p>
+      <p class="reveal">My goal is to create things that are not just functional, but genuinely <strong>intuitive, inclusive, and meaningful</strong>. I care deeply about the details that make a product feel thoughtful rather than just built.</p>
+      <p class="reveal">Currently interning as an <strong>AI Implementation Intern at Kobalt.io</strong>, and always excited about the intersection of design, intelligence, and human experience.</p>
+      <div class="about-tags reveal">
+        <span class="about-tag">🤖 AI Intern · Kobalt.io</span>
+        <span class="about-tag">👩‍🏫 TA · UBC CS</span>
+        <span class="about-tag">💻 IT Staff · UBC Sauder</span>
+        <span class="about-tag">🔬 VP Internal · UBC Women in Science</span>
+      </div>
+    </div>
 
-      <div class="skills-grid reveal">
-        <div class="skill-envelope">
-          <h4>Languages</h4>
-          <div class="skill-tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">C/C++</span>
-            <span class="tag">HTML/CSS</span>
-          </div>
-        </div>
+  </div>
+</section>
 
-        <div class="skill-envelope">
-          <h4>Web &amp; Mobile</h4>
-          <div class="skill-tags">
+<!-- ─── PROJECTS ─────────────────────────────────────────── -->
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <span class="section-label">Featured Projects</span>
+    <h2 class="section-title">Things I've built.</h2>
+
+    <div class="projects-grid reveal">
+
+      <article class="project-card">
+        <span class="project-badge">✦ Hack the Coast 2026</span>
+        <h3>MemoryLane</h3>
+        <p class="project-date">In development</p>
+        <p class="project-desc">A voice-first mobile app designed for seniors experiencing cognitive decline, helping them record and revisit personal memories through guided prompts and calm, accessible design. Built with minimal navigation and ElevenLabs voice integration to reduce cognitive load.</p>
+        <div class="project-footer">
+          <div class="tech-tags">
             <span class="tag">React Native</span>
             <span class="tag">Expo</span>
-            <span class="tag">Responsive Design</span>
-            <span class="tag">Accessibility (WCAG)</span>
+            <span class="tag">ElevenLabs API</span>
+            <span class="tag">Figma</span>
+          </div>
+          <a href="https://devpost.com/software/memorylane-kig729" target="_blank" class="project-link">Devpost ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <span class="project-badge pink">✦ nwHacks 2026 Best Wellness Runner-up</span>
+        <h3>Ripple</h3>
+        <p class="project-date">January 2026</p>
+        <p class="project-desc">A privacy-first mobile app to reduce student loneliness through anonymous, event-based connections. Led end-to-end UX from problem framing to high-fidelity prototypes, integrating audio-based interactions that prioritize emotional safety over social metrics.</p>
+        <div class="project-footer">
+          <div class="tech-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Expo</span>
+            <span class="tag">Figma</span>
             <span class="tag">REST APIs</span>
           </div>
+          <div class="project-links">
+            <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://devpost.com/software/wellnest-86zhuv" target="_blank" class="project-link">Devpost ↗</a>
+          </div>
         </div>
+      </article>
 
-        <div class="skill-envelope">
-          <h4>Design &amp; UX</h4>
-          <div class="skill-tags">
+      <article class="project-card">
+        <span class="project-badge">✦ HackCamp 2025 Finalist · Best Accessible Design</span>
+        <h3>BentoBuddies</h3>
+        <p class="project-date">November 2025</p>
+        <p class="project-desc">A responsive web app connecting UBC students to find dining partners. Designed WCAG-compliant accessible interfaces and integrated Google Maps API for campus-wide discovery. Built with a team of 4 out of 300 participants, 64 teams.</p>
+        <div class="project-footer">
+          <div class="tech-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Google Maps API</span>
             <span class="tag">Figma</span>
-            <span class="tag">FigJam</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/wakana-k98" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://devpost.com/software/food-buddy-finder" target="_blank" class="project-link">Devpost ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <span class="project-badge pink">✦ UXathon 2026</span>
+        <h3>Downtime</h3>
+        <p class="project-date">January 2026</p>
+        <p class="project-desc">A UX concept empowering teenagers to disconnect without social anxiety. Conducted user research with teens (16–18), synthesizing insights into personas, user journeys, and a high-fidelity Figma prototype with automated status messaging and affirming microcopy.</p>
+        <div class="project-footer">
+          <div class="tech-tags">
+            <span class="tag">Figma</span>
             <span class="tag">UX Research</span>
             <span class="tag">Prototyping</span>
-            <span class="tag">Design Systems</span>
-            <span class="tag">Canva</span>
+          </div>
+          <div class="project-links">
+            <a href="https://devpost.com/software/downtime-3nepfm" target="_blank" class="project-link">Figma ↗</a>
+            <a href="https://devpost.com/software/downtime-3nepfm" target="_blank" class="project-link">Devpost ↗</a>
           </div>
         </div>
+      </article>
 
-        <div class="skill-envelope">
-          <h4>Developer Tools</h4>
-          <div class="skill-tags">
-            <span class="tag">Git / GitHub</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">IntelliJ</span>
-            <span class="tag">RStudio</span>
-          </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ───────────────────────────────────────────── -->
+<section class="skills" id="skills">
+  <div class="skills-inner">
+    <span class="section-label">Technical Skills</span>
+    <h2 class="section-title">What I work with.</h2>
+
+    <div class="skills-grid reveal">
+      <div class="skill-envelope">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C/C++</span>
+          <span class="tag">HTML/CSS</span>
         </div>
-
-        <div class="skill-envelope">
-          <h4>AI &amp; APIs</h4>
-          <div class="skill-tags">
-            <span class="tag">ElevenLabs API</span>
-            <span class="tag">Google Maps API</span>
-            <span class="tag">ML Fundamentals</span>
-            <span class="tag">Multiomics (R/Python)</span>
-          </div>
+      </div>
+      <div class="skill-envelope">
+        <h4>Web &amp; Mobile</h4>
+        <div class="skill-tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Expo</span>
+          <span class="tag">Responsive Design</span>
+          <span class="tag">Accessibility (WCAG)</span>
+          <span class="tag">REST APIs</span>
         </div>
-
-        <div class="skill-envelope">
-          <h4>Concepts</h4>
-          <div class="skill-tags">
-            <span class="tag">Software Design</span>
-            <span class="tag">Data Structures &amp; Algorithms</span>
-            <span class="tag">Systems Thinking</span>
-          </div>
+      </div>
+      <div class="skill-envelope">
+        <h4>Design &amp; UX</h4>
+        <div class="skill-tags">
+          <span class="tag">Figma</span>
+          <span class="tag">FigJam</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+      <div class="skill-envelope">
+        <h4>Developer Tools</h4>
+        <div class="skill-tags">
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">IntelliJ</span>
+          <span class="tag">RStudio</span>
+        </div>
+      </div>
+      <div class="skill-envelope">
+        <h4>AI &amp; APIs</h4>
+        <div class="skill-tags">
+          <span class="tag">ElevenLabs API</span>
+          <span class="tag">Google Maps API</span>
+          <span class="tag">ML Fundamentals</span>
+          <span class="tag">Multiomics (R/Python)</span>
+        </div>
+      </div>
+      <div class="skill-envelope">
+        <h4>Concepts</h4>
+        <div class="skill-tags">
+          <span class="tag">Software Design</span>
+          <span class="tag">Data Structures &amp; Algorithms</span>
+          <span class="tag">Systems Thinking</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <p class="section-label" style="color:var(--sage-light);justify-content:center">Get in touch</p>
-      <h2 class="contact-heading reveal">Let's build something<br>together ✿</h2>
-      <p class="contact-sub reveal">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
-
-      <div class="contact-links reveal">
-        <a href="mailto:wkuwayama@gmail.com" class="stamp-btn">✉ wkuwayama@gmail.com</a>
-        <div class="contact-pills">
-          <a href="https://www.linkedin.com/in/wakana-k/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
-          <a href="https://github.com/wakana-k98" target="_blank" class="btn btn-outline-light">GitHub</a>
-        </div>
+<!-- ─── CONTACT ──────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="section-label" style="color:var(--sage)">Get in touch</span>
+    <h2 class="contact-heading reveal">Let's build something<br>together ✿</h2>
+    <p class="contact-sub reveal">Open to co-op opportunities, creative collaborations, and interesting conversations.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:wkuwayama@gmail.com" class="stamp-btn">✉ wkuwayama@gmail.com</a>
+      <div class="contact-pills">
+        <a href="https://www.linkedin.com/in/wakana-k/" target="_blank" class="btn-outline-light">LinkedIn</a>
+        <a href="https://github.com/wakana-k98" target="_blank" class="btn-outline-light">GitHub</a>
       </div>
     </div>
+  </div>
+  <footer class="footer">
+    <p>© 2026 Wakana Kuwayama</p>
+  </footer>
+</section>
 
-    <footer class="footer">
-      <p>© 2026 Wakana Kuwayama · <span style="font-family:'Zen Maru Gothic',sans-serif">届く</span> ✿</p>
-    </footer>
-  </section>
+<script>
+  // Active pill on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const pills    = document.querySelectorAll('.pill[data-section]');
+  const navObs   = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        pills.forEach(p => p.classList.remove('active'));
+        const active = document.querySelector(`.pill[data-section="${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => navObs.observe(s));
 
-  <script>
-    // Active pill detection via IntersectionObserver
-    const sections = document.querySelectorAll('section[id]');
-    const pills = document.querySelectorAll('.pill[data-section]');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          pills.forEach(p => p.classList.remove('active'));
-          const active = document.querySelector(`.pill[data-section="${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { threshold: 0.4 });
-
-    sections.forEach(s => observer.observe(s));
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach(el => revealObserver.observe(el));
-  </script>
+  // Scroll reveal
+  const reveals    = document.querySelectorAll('.reveal');
+  const revealObs  = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => revealObs.observe(el));
+</script>
 </body>
 </html>
